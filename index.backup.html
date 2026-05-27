@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OdontoCompany — Invista na franquia #1 em odontologia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-900: #0a2e1a;
+  --green-800: #0f3d22;
+  --green-700: #145228;
+  --green-600: #1a6b34;
+  --green-500: #1e8040;
+  --green-400: #22a050;
+  --green-300: #3dc46e;
+  --green-200: #7ddba0;
+  --green-100: #c2f0d4;
+  --green-50:  #eaf9f0;
+  --lime: #b5e800;
+  --lime-dark: #8fb800;
+  --white: #ffffff;
+  --off-white: #f7f8f4;
+  --gray-100: #f0f1ed;
+  --gray-200: #e2e4de;
+  --gray-400: #9a9e94;
+  --gray-600: #5a5e55;
+  --gray-800: #2a2d27;
+  --black: #141510;
+  --serif: 'DM Serif Display', Georgia, serif;
+  --sans: 'DM Sans', sans-serif;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 100px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--off-white);
+  color: var(--black);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+/* ─── UTILITY ─── */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: var(--radius-pill);
+}
+.badge-lime { background: var(--lime); color: var(--green-900); }
+.badge-green { background: var(--green-100); color: var(--green-700); }
+.badge-white { background: rgba(255,255,255,0.18); color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
+.tag {
+  display: inline-block; font-size: 10px; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 10px; border-radius: var(--radius-pill);
+  background: var(--green-100); color: var(--green-700);
+}
+
+/* ─── NAV ─── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 0;
+  background: rgba(247,248,244,0.0);
+  backdrop-filter: blur(0px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s;
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-logo {
+  font-family: var(--serif); font-size: 22px; color: var(--green-800);
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo-icon {
+  width: 36px; height: 36px; background: var(--green-700); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-logo-icon svg { width: 20px; height: 20px; fill: white; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { font-size: 14px; color: var(--gray-600); font-weight: 400; transition: color 0.2s; }
+.nav-links a:hover { color: var(--green-700); }
+.nav-cta {
+  background: var(--green-700); color: white; font-size: 14px; font-weight: 500;
+  padding: 10px 22px; border-radius: var(--radius-pill); transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-cta:hover { background: var(--green-600); transform: translateY(-1px); }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh; padding-top: 80px;
+  background: var(--green-900);
+  position: relative; overflow: hidden;
+  display: flex; align-items: center;
+}
+.hero-bg-pattern {
+  position: absolute; inset: 0; opacity: 0.04;
+  background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.hero-bg-glow {
+  position: absolute; top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(29,158,117,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 440px; gap: 60px; align-items: center;
+  padding: 80px 0;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 28px;
+}
+.hero-eyebrow-line { width: 32px; height: 1px; background: var(--lime); }
+.hero-eyebrow span { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime); }
+.hero-headline {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.08;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.hero-headline em { font-style: italic; color: var(--green-300); }
+.hero-sub {
+  font-size: 18px; color: rgba(255,255,255,0.65); line-height: 1.6;
+  max-width: 480px; margin-bottom: 36px;
+}
+.hero-stats {
+  display: flex; gap: 0; margin-bottom: 40px;
+  border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius);
+  overflow: hidden;
+}
+.hero-stat {
+  flex: 1; padding: 18px 20px;
+  border-right: 1px solid rgba(255,255,255,0.1);
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat-val {
+  font-family: var(--serif); font-size: 26px; color: var(--lime); line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.5); line-height: 1.3; }
+.hero-ctas { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--lime); color: var(--green-900);
+  font-size: 15px; font-weight: 600;
+  padding: 14px 28px; border-radius: var(--radius-pill);
+  transition: all 0.2s; cursor: pointer; border: none;
+}
+.btn-primary:hover { background: #c8ff00; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(181,232,0,0.3); }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: rgba(255,255,255,0.7); font-size: 14px; font-weight: 400;
+  transition: color 0.2s; cursor: pointer; background: none; border: none;
+}
+.btn-ghost:hover { color: white; }
+.btn-ghost svg { transition: transform 0.2s; }
+.btn-ghost:hover svg { transform: translateX(3px); }
+
+/* Hero form card */
+.hero-form-card {
+  background: rgba(255, 255, 255, 0.05); border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: 0 32px 64px rgba(0,0,0,0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.hero-form-top { margin-bottom: 24px; }
+.hero-form-title { font-family: var(--serif); font-size: 22px; color: white; margin-bottom: 6px; }
+.hero-form-sub { font-size: 13px; color: rgba(255, 255, 255, 0.6); }
+.form-group { margin-bottom: 14px; }
+.form-label { display: block; font-size: 12px; font-weight: 500; color: rgba(255, 255, 255, 0.8); margin-bottom: 5px; }
+.form-input {
+  width: 100%; padding: 11px 14px; border-radius: var(--radius);
+  border: 1px solid rgba(255, 255, 255, 0.15); font-family: var(--sans); font-size: 14px;
+  color: white; background: rgba(255, 255, 255, 0.05);
+  transition: border-color 0.2s, background 0.2s; outline: none;
+}
+.form-input:focus { border-color: var(--lime); background: rgba(255, 255, 255, 0.1); }
+.form-input::placeholder { color: rgba(255, 255, 255, 0.4); }
+.form-submit {
+  width: 100%; padding: 14px; background: var(--green-700); color: white;
+  font-family: var(--sans); font-size: 15px; font-weight: 600;
+  border: none; border-radius: var(--radius-pill); cursor: pointer;
+  transition: all 0.2s; margin-top: 4px;
+}
+.form-submit:hover { background: var(--green-600); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(26,107,52,0.3); }
+.form-trust {
+  display: flex; align-items: center; gap: 6px; margin-top: 12px; justify-content: center;
+}
+.form-trust svg { color: var(--gray-400); }
+.form-trust span { font-size: 11px; color: var(--gray-400); }
+
+/* ─── SECTION BASE ─── */
+section { padding: 96px 0; }
+.section-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.section-eyebrow-line { width: 24px; height: 2px; background: var(--green-400); border-radius: 2px; }
+.section-eyebrow span { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-600); }
+.section-title {
+  font-family: var(--serif); font-size: clamp(32px, 4vw, 48px);
+  color: var(--green-900); line-height: 1.15; margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--green-500); }
+.section-sub { font-size: 17px; color: var(--gray-600); max-width: 560px; line-height: 1.65; }
+
+/* ─── S2: PROBLEMA / MERCADO ─── */
+.market-section { background: var(--white); }
+.market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.market-data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.market-card {
+  padding: 24px; border-radius: var(--radius-lg);
+  background: var(--off-white); border: 1px solid var(--gray-200);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.market-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.market-card-icon { font-size: 24px; margin-bottom: 12px; }
+.market-card-val {
+  font-family: var(--serif); font-size: 32px; color: var(--green-700);
+  line-height: 1; margin-bottom: 4px;
+}
+.market-card-label { font-size: 13px; color: var(--gray-600); line-height: 1.4; }
+.market-card.accent { background: var(--green-900); border-color: var(--green-900); }
+.market-card.accent .market-card-val { color: var(--lime); }
+.market-card.accent .market-card-label { color: rgba(255,255,255,0.6); }
+.market-points { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+.market-point { display: flex; gap: 14px; align-items: flex-start; }
+.market-point-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green-400); margin-top: 7px; flex-shrink: 0;
+}
+.market-point-text { font-size: 15px; color: var(--gray-800); line-height: 1.5; }
+.market-point-text strong { color: var(--green-700); font-weight: 600; }
+
+/* ─── S3: COMPARATIVO ─── */
+.compare-section { background: var(--green-900); position: relative; overflow: hidden; }
+.compare-section::before { content: ''; position: absolute; top: -100px; right: -100px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(181,232,0,0.1) 0%, transparent 70%); pointer-events: none; }
+.compare-section .section-title { color: white; }
+.compare-section .section-sub { color: rgba(255,255,255,0.6); }
+.compare-section .section-eyebrow span { color: var(--lime); }
+.compare-section .section-eyebrow-line { background: var(--lime); }
+.compare-table-wrap { margin-top: 56px; overflow-x: auto; }
+.compare-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.compare-table thead th {
+  padding: 16px 20px; text-align: center; font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.5); letter-spacing: 0.05em;
+}
+.compare-table thead th:first-child { text-align: left; }
+.compare-table thead th.highlight {
+  background: var(--lime); color: var(--green-900);
+  border-radius: 12px 12px 0 0;
+}
+.compare-table tbody tr:first-child td { border-top: 1px solid rgba(255,255,255,0.08); }
+.compare-table tbody td {
+  padding: 16px 20px; text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  font-size: 14px; color: rgba(255,255,255,0.7);
+}
+.compare-table tbody td:first-child { text-align: left; font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 500; }
+.compare-table tbody td.highlight { background: rgba(181,232,0,0.06); color: white; font-weight: 600; }
+.compare-table tbody tr:last-child td.highlight { border-radius: 0 0 12px 12px; }
+.compare-val-good { color: var(--lime) !important; font-weight: 700 !important; font-family: var(--serif); font-size: 18px !important; }
+.compare-val-mid { color: rgba(255,255,255,0.5) !important; }
+.compare-val-bad { color: rgba(255,100,100,0.7) !important; }
+.compare-note {
+  margin-top: 20px; font-size: 12px; color: rgba(255,255,255,0.3);
+  text-align: center; font-style: italic;
+}
+
+/* ─── S4: VANTAGENS ─── */
+.benefits-section { background: var(--off-white); }
+.benefits-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px;
+}
+.benefit-card {
+  background: white; border-radius: var(--radius-lg);
+  padding: 28px; border: 1px solid var(--gray-200);
+  transition: all 0.25s; position: relative; overflow: hidden;
+}
+.benefit-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--green-700); transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s;
+}
+.benefit-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+.benefit-card:hover::before { transform: scaleX(1); }
+.benefit-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--green-50); display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px; font-size: 22px;
+}
+.benefit-title { font-size: 16px; font-weight: 600; color: var(--green-900); margin-bottom: 8px; }
+.benefit-desc { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+.benefit-highlight { font-weight: 600; color: var(--green-600); }
+
+/* ─── S5: NÚMEROS / MODELO ─── */
+.numbers-section { background: white; }
+.numbers-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.kpi-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.kpi-card {
+  border-radius: var(--radius-lg); padding: 24px;
+  background: var(--off-white); border: 1px solid var(--gray-200);
+}
+.kpi-card.dark { background: var(--green-900); border-color: var(--green-900); }
+.kpi-card-val {
+  font-family: var(--serif); font-size: 36px; color: var(--green-700);
+  line-height: 1; margin-bottom: 6px;
+}
+.kpi-card.dark .kpi-card-val { color: var(--lime); }
+.kpi-card-label { font-size: 13px; color: var(--gray-600); line-height: 1.4; }
+.kpi-card.dark .kpi-card-label { color: rgba(255,255,255,0.55); }
+.kpi-card-detail { font-size: 11px; color: var(--gray-400); margin-top: 4px; font-style: italic; }
+.numbers-text-side { padding-top: 8px; }
+.numbers-checklist { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+.numbers-check { display: flex; gap: 12px; align-items: flex-start; }
+.check-icon {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--green-100); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.check-icon svg { width: 12px; height: 12px; stroke: var(--green-700); }
+.check-text { font-size: 14px; color: var(--gray-700); line-height: 1.5; }
+.check-text strong { color: var(--green-800); }
+.numbers-cta-row { margin-top: 36px; display: flex; align-items: center; gap: 16px; }
+.btn-solid-green {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-700); color: white;
+  font-size: 14px; font-weight: 600; padding: 13px 26px;
+  border-radius: var(--radius-pill); transition: all 0.2s;
+  cursor: pointer; border: none; font-family: var(--sans);
+}
+.btn-solid-green:hover { background: var(--green-600); transform: translateY(-1px); box-shadow: 0 8px 20px rgba(26,107,52,0.25); }
+
+/* ─── S6: SUPORTE ─── */
+.support-section { background: var(--off-white); }
+.support-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 56px;
+}
+.support-item {
+  background: white; border-radius: var(--radius); padding: 22px;
+  border: 1px solid var(--gray-200); display: flex; gap: 14px; align-items: flex-start;
+}
+.support-num {
+  font-family: var(--serif); font-size: 28px; color: var(--green-100);
+  line-height: 1; flex-shrink: 0; min-width: 32px;
+}
+.support-item-title { font-size: 14px; font-weight: 600; color: var(--green-900); margin-bottom: 4px; }
+.support-item-desc { font-size: 13px; color: var(--gray-600); line-height: 1.5; }
+
+/* ─── S7: MIDIA / ELIANA ─── */
+.media-section {
+  background: var(--green-800); overflow: hidden; position: relative;
+}
+.media-section .section-title { color: white; }
+.media-section .section-sub { color: rgba(255,255,255,0.6); }
+.media-section .section-eyebrow span { color: var(--lime); }
+.media-section .section-eyebrow-line { background: var(--lime); }
+.media-inner { display: grid; grid-template-columns: 1fr 480px; gap: 60px; align-items: center; }
+.media-stat-row { display: flex; gap: 0; margin-top: 40px; border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius); overflow: hidden; }
+.media-stat { flex: 1; padding: 20px; border-right: 1px solid rgba(255,255,255,0.12); }
+.media-stat:last-child { border-right: none; }
+.media-stat-val { font-family: var(--serif); font-size: 22px; color: var(--lime); line-height: 1; margin-bottom: 4px; }
+.media-stat-label { font-size: 11px; color: rgba(255,255,255,0.45); }
+.media-proof-card {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-lg); padding: 32px; position: relative;
+}
+.media-proof-quote {
+  font-family: var(--serif); font-size: 18px; font-style: italic;
+  color: white; line-height: 1.5; margin-bottom: 24px;
+}
+.media-networks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.media-network-tag {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.05em;
+  padding: 5px 12px; border-radius: var(--radius-pill);
+  background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.media-eliana-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--lime); color: var(--green-900);
+  padding: 8px 16px; border-radius: var(--radius-pill);
+  font-size: 12px; font-weight: 700; margin-top: 20px;
+}
+
+/* ─── S8: DEPOIMENTOS ─── */
+.testimonials-section { background: white; }
+.testimonials-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 56px;
+}
+.testimonial-card {
+  background: var(--off-white); border-radius: var(--radius-lg); padding: 28px;
+  border: 1px solid var(--gray-200); display: flex; flex-direction: column; gap: 16px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+.testimonial-card.featured {
+  background: var(--green-900); border-color: var(--green-900); grid-row: span 1;
+}
+.t-profile { display: flex; align-items: center; gap: 12px; }
+.t-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--green-200); display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 16px; color: var(--green-800); font-weight: 400;
+  flex-shrink: 0;
+}
+.testimonial-card.featured .t-avatar { background: rgba(255,255,255,0.15); color: white; }
+.t-name { font-size: 14px; font-weight: 600; color: var(--green-900); }
+.testimonial-card.featured .t-name { color: white; }
+.t-role { font-size: 12px; color: var(--gray-400); }
+.testimonial-card.featured .t-role { color: rgba(255,255,255,0.5); }
+.t-tag {
+  display: inline-block; font-size: 10px; font-weight: 600;
+  padding: 3px 10px; border-radius: var(--radius-pill);
+  background: var(--green-100); color: var(--green-700);
+}
+.testimonial-card.featured .t-tag { background: rgba(181,232,0,0.2); color: var(--lime); }
+.t-quote { font-size: 14px; line-height: 1.65; color: var(--gray-700); flex: 1; }
+.testimonial-card.featured .t-quote { color: rgba(255,255,255,0.8); }
+.t-result {
+  padding: 12px 14px; border-radius: var(--radius);
+  background: var(--green-50); border: 1px solid var(--green-100);
+}
+.testimonial-card.featured .t-result { background: rgba(181,232,0,0.1); border-color: rgba(181,232,0,0.2); }
+.t-result-val { font-family: var(--serif); font-size: 22px; color: var(--green-700); line-height: 1; }
+.testimonial-card.featured .t-result-val { color: var(--lime); }
+.t-result-label { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+.testimonial-card.featured .t-result-label { color: rgba(255,255,255,0.45); }
+
+/* ─── S9: FAQ ─── */
+.faq-section { background: var(--off-white); }
+.faq-layout { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
+.faq-sticky { position: sticky; top: 100px; }
+.faq-form-mini {
+  margin-top: 32px; background: white; border-radius: var(--radius-lg); padding: 28px;
+  border: 1px solid var(--gray-200);
+}
+.faq-form-mini-title { font-size: 16px; font-weight: 600; color: var(--green-900); margin-bottom: 6px; }
+.faq-form-mini-sub { font-size: 13px; color: var(--gray-400); margin-bottom: 20px; }
+.faq-list { display: flex; flex-direction: column; gap: 4px; }
+.faq-item {
+  background: white; border-radius: var(--radius);
+  border: 1px solid var(--gray-200); overflow: hidden;
+}
+.faq-question {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 18px 22px; cursor: pointer; transition: background 0.2s;
+  gap: 16px;
+}
+.faq-question:hover { background: var(--green-50); }
+.faq-q-text { font-size: 15px; font-weight: 500; color: var(--green-900); line-height: 1.4; }
+.faq-chevron {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--green-100); display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all 0.25s;
+}
+.faq-chevron svg { width: 10px; height: 10px; stroke: var(--green-700); transition: transform 0.25s; }
+.faq-item.open .faq-chevron { background: var(--green-700); }
+.faq-item.open .faq-chevron svg { stroke: white; transform: rotate(180deg); }
+.faq-answer {
+  max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s;
+}
+.faq-item.open .faq-answer { max-height: 400px; }
+.faq-answer-inner { padding: 0 22px 20px; font-size: 14px; color: var(--gray-600); line-height: 1.7; }
+.faq-answer-inner strong { color: var(--green-800); }
+
+/* ─── S10: CTA FINAL ─── */
+.cta-section {
+  background: var(--green-900); padding: 100px 0;
+  position: relative; overflow: hidden;
+}
+.cta-bg-glow {
+  position: absolute; bottom: -200px; left: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(29,158,117,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center;
+}
+.cta-title {
+  font-family: var(--serif); font-size: clamp(32px, 4vw, 52px);
+  color: white; line-height: 1.1; margin-bottom: 20px;
+}
+.cta-title em { font-style: italic; color: var(--green-300); }
+.cta-sub { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 32px; }
+.cta-urgency {
+  display: flex; align-items: center; gap: 10px; padding: 14px 18px;
+  background: rgba(181,232,0,0.08); border: 1px solid rgba(181,232,0,0.2);
+  border-radius: var(--radius); margin-bottom: 32px;
+}
+.urgency-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--lime); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.6;transform:scale(1.2)} }
+.urgency-text { font-size: 13px; color: rgba(255,255,255,0.7); }
+.urgency-text strong { color: var(--lime); }
+.cta-mini-stats { display: flex; gap: 24px; }
+.cta-mini-stat { }
+.cta-mini-val { font-family: var(--serif); font-size: 28px; color: var(--lime); line-height: 1; }
+.cta-mini-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.cta-form-card {
+  background: rgba(255,255,255,0.05); border-radius: 24px; padding: 36px 32px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* ─── FOOTER ─── */
+.footer { background: var(--green-900); border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 0; }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+.footer-logo { font-family: var(--serif); font-size: 20px; color: rgba(255,255,255,0.7); }
+.footer-info { font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.6; max-width: 400px; }
+.footer-legal { font-size: 11px; color: rgba(255,255,255,0.25); }
+
+/* ─── WIREFRAME ANNOTATIONS ─── */
+.annotation {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #fff3cd; color: #856404;
+  font-size: 11px; font-weight: 600; padding: 4px 10px;
+  border-radius: var(--radius-pill); border: 1px solid #ffc107;
+  margin-bottom: 10px;
+}
+.annotation::before { content: '✏'; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.animate-in { animation: fadeUp 0.6s ease forwards; }
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+/* ─── SECTION LABELS (auditoria visual) ─── */
+.section-audit-tag {
+  position: absolute; top: 16px; right: 16px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: var(--radius-pill);
+  background: rgba(0,0,0,0.1); color: rgba(0,0,0,0.4); pointer-events: none;
+}
+section { position: relative; }
+
+/* ─── S1.5: VÍDEO ─── */
+.video-section {
+  background: var(--green-900);
+  padding: 0 0 80px;
+}
+.video-section-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.video-text-side {}
+.video-eyebrow {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 20px;
+}
+.video-eyebrow-line { width: 24px; height: 1px; background: var(--lime); }
+.video-eyebrow span { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--lime); }
+.video-headline {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 38px);
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+.video-headline em { font-style: italic; color: var(--green-300); }
+.video-sub {
+  font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.65;
+  margin-bottom: 28px;
+}
+.video-speaker {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+}
+.video-speaker-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--green-700);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 18px; color: var(--green-200);
+  flex-shrink: 0;
+}
+.video-speaker-name { font-size: 14px; font-weight: 600; color: var(--white); }
+.video-speaker-role { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 2px; }
+.video-player-wrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 16/9;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+.video-player-wrap iframe {
+  width: 100%; height: 100%; border: none; display: block;
+}
+.video-thumb {
+  position: absolute; inset: 0;
+  background: var(--green-800);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 16px;
+  transition: opacity 0.3s;
+}
+.video-thumb-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,46,26,0.7) 0%, rgba(15,61,34,0.4) 100%);
+}
+.video-play-btn {
+  position: relative; z-index: 2;
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--lime);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+}
+.video-play-btn:hover { transform: scale(1.08); box-shadow: 0 0 0 12px rgba(181,232,0,0.15); }
+.video-play-btn svg { width: 28px; height: 28px; fill: var(--green-900); margin-left: 4px; }
+.video-thumb-label {
+  position: relative; z-index: 2;
+  font-size: 13px; color: rgba(255,255,255,0.7); text-align: center;
+}
+.video-thumb-label strong { color: white; display: block; font-size: 15px; margin-bottom: 2px; }
+.video-duration {
+  position: absolute; bottom: 14px; right: 14px; z-index: 2;
+  font-size: 11px; font-weight: 600;
+  background: rgba(0,0,0,0.6); color: white;
+  padding: 3px 8px; border-radius: 6px;
+}
+.video-tabs {
+  display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap;
+}
+.video-tab {
+  font-size: 12px; font-weight: 500; padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.5);
+  cursor: pointer; transition: all 0.2s; background: none;
+  font-family: var(--sans);
+}
+.video-tab.active, .video-tab:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.3);
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════ NAV ═══ -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C8.5 2 5 5 5 9c0 2 .8 3.8 2 5l2 6c.3.8 1 1 1 1h4c0 0 .7-.2 1-1l2-6c1.2-1.2 2-3 2-5 0-4-3.5-7-7-7z"/></svg>
+        </div>
+        OdontoCompany
+      </div>
+      <div class="nav-links">
+        <a href="#vantagens">Vantagens</a>
+        <a href="#numeros">Números</a>
+        <a href="#depoimentos">Franqueados</a>
+        <a href="#faq">Dúvidas</a>
+      </div>
+      <a href="#cta" class="nav-cta">Quero investir →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════ S1: HERO ═══ -->
+<section class="hero" id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-bg-glow"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow animate-in delay-1">
+          <div class="hero-eyebrow-line"></div>
+          <span>Maior rede de franquias odontológicas do Brasil</span>
+        </div>
+        <h1 class="hero-headline animate-in delay-2">
+          Fature até <em>R$&nbsp;1,4&nbsp;milhão</em> por ano com a franquia líder em odontologia
+        </h1>
+        <p class="hero-sub animate-in delay-3">
+          +1.000 unidades. +6 milhões de pacientes. Modelo testado em 35 anos de mercado.
+          Retorno do investimento a partir do 18º mês.
+        </p>
+        <div class="hero-stats animate-in delay-3">
+          <div class="hero-stat">
+            <div class="hero-stat-val">R$&nbsp;450k</div>
+            <div class="hero-stat-label">Investimento inicial incluso tudo</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val">20–30%</div>
+            <div class="hero-stat-label">Lucratividade média mensal</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-val">18&nbsp;meses</div>
+            <div class="hero-stat-label">Prazo médio de retorno</div>
+          </div>
+        </div>
+        <div class="hero-ctas animate-in delay-4">
+          <button class="btn-primary" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
+            Receber plano de negócio
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button class="btn-ghost" onclick="document.getElementById('numeros').scrollIntoView({behavior:'smooth'})">
+            Ver os números
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <p style="font-size:11px;color:rgba(255,255,255,0.3);margin-top:16px;">
+          Dr. Paulo Zahr — Dentista, CEO e fundador da OdontoCompany
+        </p>
+      </div>
+
+      <div class="hero-form-card animate-in delay-3">
+        <div class="hero-form-top">
+          <div class="hero-form-title">Receba o plano de negócio completo</div>
+          <p class="hero-form-sub">Dados financeiros, modelos de clínica e territórios disponíveis direto no WhatsApp</p>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input class="form-input" type="text" placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp com DDD</label>
+          <input class="form-input" type="tel" placeholder="(00) 00000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-mail</label>
+          <input class="form-input" type="email" placeholder="seu@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cidade de interesse</label>
+          <input class="form-input" type="text" placeholder="Ex: São Paulo – SP">
+        </div>
+        <button class="form-submit">Quero receber o plano de negócio</button>
+        <div class="form-trust">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>Seus dados estão seguros. Sem spam.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S1.5: VÍDEO ═══ -->
+<section class="video-section" id="video">
+  <div class="container">
+    <div class="video-section-inner">
+
+      <div class="video-text-side">
+        <div class="video-eyebrow">
+          <div class="video-eyebrow-line"></div>
+          <span>Conheça por dentro</span>
+        </div>
+        <h2 class="video-headline">
+          Veja como funciona <em>na prática</em> antes de decidir
+        </h2>
+        <p class="video-sub">
+          Nosso time de expansão preparou um recado exclusivo para você, investidor. Em poucos minutos, você entende o modelo, o suporte e o que esperar do processo de abertura.
+        </p>
+        <div class="video-tabs">
+          <button class="video-tab active" onclick="switchVideo(this, 'expansao')">Expansão e modelo</button>
+          <button class="video-tab" onclick="switchVideo(this, 'fundador')">Dr. Paulo Zahr</button>
+          <button class="video-tab" onclick="switchVideo(this, 'clinica')">Tour pela clínica</button>
+        </div>
+        <div class="video-speaker" id="videoSpeaker">
+          <div class="video-speaker-avatar">FN</div>
+          <div>
+            <div class="video-speaker-name">Felipe Naresi</div>
+            <div class="video-speaker-role">Diretor de Expansão e Implantação · OdontoCompany</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="video-player-wrap" id="videoWrap">
+          <!-- Substitua VIDEO_ID_AQUI pelo ID real do YouTube -->
+          <!-- Ex: https://www.youtube.com/watch?v=XXXXXXXXXXX → ID = XXXXXXXXXXX -->
+          <div class="video-thumb" id="videoThumb" onclick="playVideo()">
+            <div class="video-thumb-overlay"></div>
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <div class="video-thumb-label">
+              <strong>Assista agora</strong>
+              Como funciona a franquia OdontoCompany
+            </div>
+            <div class="video-duration">3:42</div>
+          </div>
+          <iframe
+            id="videoIframe"
+            style="display:none; width:100%; height:100%; border:none; position:absolute; inset:0;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            title="Vídeo OdontoCompany Expansão">
+          </iframe>
+        </div>
+
+        <!-- Miniaturas de outros vídeos -->
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:12px;">
+          <div class="video-mini" onclick="switchVideo(this.querySelector('button') || this, 'expansao')" style="border-radius:8px; background:rgba(181,232,0,0.08); border:1px solid rgba(181,232,0,0.2); padding:10px; cursor:pointer; transition:all 0.2s;">
+            <div class="video-mini-status" style="font-size:11px; color:var(--lime); margin-bottom:4px;">▶ Assistindo</div>
+            <div style="font-size:12px; color:white; line-height:1.35;">Expansão e modelo</div>
+          </div>
+          <div class="video-mini" onclick="switchVideo(this, 'fundador')" style="border-radius:8px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:10px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="if(currentVideo!='fundador')this.style.background='rgba(255,255,255,0.05)'">
+            <div class="video-mini-status" style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:4px;">Dr. Paulo Zahr</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.75); line-height:1.35;">Fundador fala sobre a rede</div>
+          </div>
+          <div class="video-mini" onclick="switchVideo(this, 'clinica')" style="border-radius:8px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1); padding:10px; cursor:pointer; transition:all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.1)'" onmouseout="if(currentVideo!='clinica')this.style.background='rgba(255,255,255,0.05)'">
+            <div class="video-mini-status" style="font-size:11px; color:rgba(255,255,255,0.4); margin-bottom:4px;">Bastidores</div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.75); line-height:1.35;">Tour clínica modelo SP</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S2: MERCADO ═══ -->
+<section class="market-section" id="mercado">
+  <div class="container">
+    <div class="market-grid">
+      <div>
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span>O mercado</span>
+        </div>
+        <h2 class="section-title">Odontologia: o mercado que <em>nunca para</em></h2>
+        <p class="section-sub">
+          Saúde bucal é uma necessidade contínua — não sazonal, não tecnológica, não substituível.
+          Isso cria um negócio com demanda garantida todos os meses, em qualquer cidade do Brasil.
+        </p>
+        <div class="market-points">
+          <div class="market-point">
+            <div class="market-point-dot"></div>
+            <p class="market-point-text">O Brasil tem <strong>214 milhões de pessoas</strong> e é o 2º maior mercado odontológico do mundo, atrás só dos EUA.</p>
+          </div>
+          <div class="market-point">
+            <div class="market-point-dot"></div>
+            <p class="market-point-text">O setor fatura <strong>R$ 30 bilhões por ano</strong> e cresce mesmo em períodos de crise econômica.</p>
+          </div>
+          <div class="market-point">
+            <div class="market-point-dot"></div>
+            <p class="market-point-text">Com +100 mil implantes por ano, a OdontoCompany captura o <strong>segmento de maior ticket do setor</strong>.</p>
+          </div>
+          <div class="market-point">
+            <div class="market-point-dot"></div>
+            <p class="market-point-text">Você <strong>não precisa ser dentista</strong> — o modelo foi desenhado para gestores e investidores.</p>
+          </div>
+        </div>
+      </div>
+      <div class="market-data-grid">
+        <div class="market-card accent">
+          <div class="market-card-icon">🦷</div>
+          <div class="market-card-val">+1.000</div>
+          <div class="market-card-label">unidades em todos os estados do Brasil</div>
+        </div>
+        <div class="market-card">
+          <div class="market-card-icon">👥</div>
+          <div class="market-card-val">+6M</div>
+          <div class="market-card-label">clientes ativos na rede</div>
+        </div>
+        <div class="market-card">
+          <div class="market-card-icon">💉</div>
+          <div class="market-card-val">+100k</div>
+          <div class="market-card-label">implantes dentários por ano</div>
+        </div>
+        <div class="market-card">
+          <div class="market-card-icon">🦷</div>
+          <div class="market-card-val">+13k</div>
+          <div class="market-card-label">dentistas inscritos na plataforma</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S3: COMPARATIVO ═══ -->
+<section class="compare-section" id="comparativo">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Por que OdontoCompany?</span>
+    </div>
+    <h2 class="section-title">Quanto rende R$&nbsp;450k nos <em>diferentes investimentos</em>?</h2>
+    <p class="section-sub">Antes de decidir, compare o retorno da sua franquia com outras formas de aplicar o mesmo capital.</p>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="highlight">OdontoCompany</th>
+            <th>Tesouro IPCA+</th>
+            <th>FII médio</th>
+            <th>CDB 120% CDI</th>
+            <th>Clínica solo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Renda mensal média</td>
+            <td class="highlight compare-val-good">R$ 9–36k</td>
+            <td class="compare-val-mid">R$ 2.700</td>
+            <td class="compare-val-mid">R$ 2.250</td>
+            <td class="compare-val-mid">R$ 3.500</td>
+            <td class="compare-val-mid">R$ 3–8k*</td>
+          </tr>
+          <tr>
+            <td>Retorno do capital</td>
+            <td class="highlight compare-val-good">18–24 meses</td>
+            <td class="compare-val-mid">~14 anos</td>
+            <td class="compare-val-mid">~17 anos</td>
+            <td class="compare-val-mid">~11 anos</td>
+            <td class="compare-val-bad">Indefinido</td>
+          </tr>
+          <tr>
+            <td>Gestão necessária</td>
+            <td class="highlight">Com suporte total</td>
+            <td class="compare-val-mid">Zero</td>
+            <td class="compare-val-mid">Zero</td>
+            <td class="compare-val-mid">Zero</td>
+            <td class="compare-val-bad">100% sozinho</td>
+          </tr>
+          <tr>
+            <td>Marca e marketing</td>
+            <td class="highlight">Incluso + Eliana</td>
+            <td class="compare-val-bad">—</td>
+            <td class="compare-val-bad">—</td>
+            <td class="compare-val-bad">—</td>
+            <td class="compare-val-bad">Por conta</td>
+          </tr>
+          <tr>
+            <td>Modelo validado</td>
+            <td class="highlight">35 anos + 1.000 un.</td>
+            <td class="compare-val-mid">Sim</td>
+            <td class="compare-val-mid">Sim</td>
+            <td class="compare-val-mid">Sim</td>
+            <td class="compare-val-bad">Sem garantia</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="compare-note">* Valores médios estimados. Resultados variam conforme mercado, localização e gestão do franqueado. Metodologia OdontoCompany Franchising.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S4: VANTAGENS ═══ -->
+<section class="benefits-section" id="vantagens">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>O que você recebe</span>
+    </div>
+    <h2 class="section-title">Tudo que você precisa para <em>ter sucesso</em></h2>
+    <p class="section-sub">Você cuida da gestão do negócio. A OdontoCompany cuida de todo o resto.</p>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">📡</div>
+        <div class="benefit-title">Marketing nacional com a Eliana</div>
+        <div class="benefit-desc">Campanhas nas maiores emissoras do país incluídas na franquia. <span class="benefit-highlight">Sua clínica aparece na TV, rádio e mídia digital sem custo adicional.</span></div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🛡️</div>
+        <div class="benefit-title">Modelo de baixíssimo risco</div>
+        <div class="benefit-desc">+1.000 unidades abertas e operando. Processo validado em 35 anos. <span class="benefit-highlight">Franquias têm 90% de sobrevivência em 5 anos vs 50% de negócios independentes.</span></div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🦷</div>
+        <div class="benefit-title">Você não precisa ser dentista</div>
+        <div class="benefit-desc">O franqueado é o gestor do negócio. A OdontoCompany apoia na contratação do responsável técnico. <span class="benefit-highlight">Funciona como qualquer franquia: você gerencia, o modelo opera.</span></div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💻</div>
+        <div class="benefit-title">Tecnologia e CRM inclusos</div>
+        <div class="benefit-desc">Software de gestão, agendamento digital, CRM de pacientes e plataforma Minha OdontoCompany. <span class="benefit-highlight">Gerencie de qualquer lugar, em tempo real.</span></div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🎓</div>
+        <div class="benefit-title">Treinamento e universidade corporativa</div>
+        <div class="benefit-desc">Capacitação completa para você e toda sua equipe — operacional, comercial e clínico. <span class="benefit-highlight">Conteúdo contínuo via plataforma digital.</span></div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📍</div>
+        <div class="benefit-title">Suporte de ponta a ponta</div>
+        <div class="benefit-desc">Da escolha do ponto comercial à inauguração e pós-abertura. Especialistas em obras, identidade visual, análise de mercado e fornecedores homologados. <span class="benefit-highlight">Você nunca está sozinho.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S5: NÚMEROS ═══ -->
+<section class="numbers-section" id="numeros">
+  <div class="container">
+    <div class="numbers-layout">
+      <div class="numbers-text-side">
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span>O modelo financeiro</span>
+        </div>
+        <h2 class="section-title">Os números da <em>sua futura franquia</em></h2>
+        <p class="section-sub">Projeções baseadas na média da rede. Valores sujeitos ao mercado local e à gestão do franqueado.</p>
+        <div class="numbers-checklist">
+          <div class="numbers-check">
+            <div class="check-icon">
+              <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="check-text">Investimento <strong>inclui tudo</strong>: taxa de franquia, reforma do imóvel, equipamentos e capital de giro inicial.</p>
+          </div>
+          <div class="numbers-check">
+            <div class="check-icon">
+              <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="check-text"><strong>Ponto de equilíbrio a partir do 6º mês</strong> de operação — antes de completar o primeiro semestre.</p>
+          </div>
+          <div class="numbers-check">
+            <div class="check-icon">
+              <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="check-text">Modelos de clínica para <strong>diferentes portes de cidade</strong> — de cidades médias a capitais.</p>
+          </div>
+          <div class="numbers-check">
+            <div class="check-icon">
+              <svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="check-text"><strong>Alta recorrência</strong> de clientes — tratamentos odontológicos geram retorno contínuo e fidelização natural.</p>
+          </div>
+        </div>
+        <div class="numbers-cta-row">
+          <button class="btn-solid-green" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
+            Receber projeção da minha cidade
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="kpi-cards">
+        <div class="kpi-card dark">
+          <div class="kpi-card-val">R$&nbsp;450k</div>
+          <div class="kpi-card-label">Investimento total a partir de</div>
+          <div class="kpi-card-detail">franquia + reforma + equipamentos + giro</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card-val">R$&nbsp;1,4M</div>
+          <div class="kpi-card-label">Faturamento médio por ano</div>
+          <div class="kpi-card-detail">R$ 60k a R$ 120k por mês</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card-val">20–30%</div>
+          <div class="kpi-card-label">Lucratividade média mensal</div>
+          <div class="kpi-card-detail">após período de maturação</div>
+        </div>
+        <div class="kpi-card dark">
+          <div class="kpi-card-val">18 meses</div>
+          <div class="kpi-card-label">Prazo médio de retorno do investimento</div>
+          <div class="kpi-card-detail">ponto de equilíbrio no 6º mês</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S6: SUPORTE ═══ -->
+<section class="support-section" id="suporte">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Suporte ao franqueado</span>
+    </div>
+    <h2 class="section-title">Do primeiro contato até a <em>expansão da sua rede</em></h2>
+    <p class="section-sub">Uma estrutura completa de suporte para que você não precise reinventar nada.</p>
+    <div class="support-grid">
+      <div class="support-item">
+        <div class="support-num">01</div>
+        <div>
+          <div class="support-item-title">Análise e escolha do ponto</div>
+          <div class="support-item-desc">Especialistas identificam os melhores endereços para sua cidade com base em dados de mercado e perfil de consumo.</div>
+        </div>
+      </div>
+      <div class="support-item">
+        <div class="support-num">02</div>
+        <div>
+          <div class="support-item-title">Obra e identidade visual</div>
+          <div class="support-item-desc">Suporte completo na obra com projeto padrão OdontoCompany, fornecedores homologados e acompanhamento.</div>
+        </div>
+      </div>
+      <div class="support-item">
+        <div class="support-num">03</div>
+        <div>
+          <div class="support-item-title">Treinamento pré-abertura</div>
+          <div class="support-item-desc">Capacitação operacional, comercial e clínica para você e toda sua equipe antes da inauguração.</div>
+        </div>
+      </div>
+      <div class="support-item">
+        <div class="support-num">04</div>
+        <div>
+          <div class="support-item-title">Marketing e captação de pacientes</div>
+          <div class="support-item-desc">Campanhas digitais, TV, rádio, mobiliário urbano e BOT no WhatsApp. Método exclusivo de captação.</div>
+        </div>
+      </div>
+      <div class="support-item">
+        <div class="support-num">05</div>
+        <div>
+          <div class="support-item-title">Acompanhamento pós-inauguração</div>
+          <div class="support-item-desc">Núcleo de acompanhamento intensivo nos primeiros meses — suporte de crescimento na curva de maturação.</div>
+        </div>
+      </div>
+      <div class="support-item">
+        <div class="support-num">06</div>
+        <div>
+          <div class="support-item-title">Tecnologia e gestão contínua</div>
+          <div class="support-item-desc">Software de gestão, CRM, agendamentos digitais e plataforma Minha OdontoCompany com conteúdo e guias.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S7: MÍDIA ═══ -->
+<section class="media-section" id="midia">
+  <div class="container">
+    <div class="media-inner">
+      <div>
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span>Poder de mídia</span>
+        </div>
+        <h2 class="section-title">A Eliana faz propaganda <em>para a sua clínica</em></h2>
+        <p class="section-sub">
+          Nenhum outro franqueado no setor odontológico tem esse diferencial. Enquanto seus concorrentes locais pagam por anúncio, seus pacientes já ouviram sobre a OdontoCompany na TV.
+        </p>
+        <div class="media-stat-row">
+          <div class="media-stat">
+            <div class="media-stat-val">331k</div>
+            <div class="media-stat-label">seguidores Facebook</div>
+          </div>
+          <div class="media-stat">
+            <div class="media-stat-val">211k</div>
+            <div class="media-stat-label">seguidores Instagram</div>
+          </div>
+          <div class="media-stat">
+            <div class="media-stat-val">19M+</div>
+            <div class="media-stat-label">impressões mensais</div>
+          </div>
+        </div>
+        <div class="media-eliana-badge">
+          ⭐ Eliana — embaixadora nacional da OdontoCompany
+        </div>
+      </div>
+      <div class="media-proof-card">
+        <div class="media-proof-quote">
+          "A marca já chega com credibilidade. Quando abri minha unidade, os pacientes já conheciam a OdontoCompany pela TV."
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;border-top:1px solid rgba(255,255,255,0.1);padding-top:16px">
+          <div style="width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:14px;color:white">M</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:white">Marcela S.</div>
+            <div style="font-size:11px;color:rgba(255,255,255,0.45)">Franqueada — São Paulo, SP — 2 anos de operação</div>
+          </div>
+        </div>
+        <div class="media-networks">
+          <span class="media-network-tag">Globo</span>
+          <span class="media-network-tag">SBT</span>
+          <span class="media-network-tag">Band</span>
+          <span class="media-network-tag">Record</span>
+          <span class="media-network-tag">Instagram Ads</span>
+          <span class="media-network-tag">Google Ads</span>
+          <span class="media-network-tag">YouTube</span>
+          <span class="media-network-tag">WhatsApp BOT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S8: DEPOIMENTOS ═══ -->
+<section class="testimonials-section" id="depoimentos">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span>Franqueados reais</span>
+    </div>
+    <h2 class="section-title">Histórias de quem <em>já deu o passo</em></h2>
+    <p class="section-sub">Diferentes perfis. Diferentes cidades. Um resultado em comum.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="t-profile">
+          <div class="t-avatar">RS</div>
+          <div>
+            <div class="t-name">Ricardo S.</div>
+            <div class="t-role">Ex-executivo bancário • Campinas, SP</div>
+          </div>
+        </div>
+        <span class="t-tag">Investidor puro</span>
+        <p class="t-quote">"Sai de 20 anos no mercado financeiro sem nunca ter tocado em odontologia. O suporte da OdontoCompany foi tão completo que eu me sentia seguro desde o primeiro dia. Hoje tenho 2 unidades."</p>
+        <div class="t-result">
+          <div class="t-result-val">R$ 28k/mês</div>
+          <div class="t-result-label">lucro médio mensal · 18 meses de operação</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card featured">
+        <div class="t-profile">
+          <div class="t-avatar">AC</div>
+          <div>
+            <div class="t-name">Dra. Ana C.</div>
+            <div class="t-role">Dentista proprietária • Belo Horizonte, MG</div>
+          </div>
+        </div>
+        <span class="t-tag">Dentista empreendedora</span>
+        <p class="t-quote">"Tinha minha clínica solo há 8 anos e estava travada. Com a OdontoCompany consegui escalar sem perder qualidade. A estrutura de marketing trouxe um volume de pacientes que nunca conseguiria sozinha."</p>
+        <div class="t-result">
+          <div class="t-result-val">3× receita</div>
+          <div class="t-result-label">em relação à clínica solo anterior</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="t-profile">
+          <div class="t-avatar">MF</div>
+          <div>
+            <div class="t-name">Marcos F.</div>
+            <div class="t-role">Empresário do setor imobiliário • Recife, PE</div>
+          </div>
+        </div>
+        <span class="t-tag">Multi-unit</span>
+        <p class="t-quote">"Comecei com 1 unidade em 2022. Em 2024 abri a terceira. O modelo escala muito bem — cada unidade nova fica mais fácil de operar porque já domino os processos."</p>
+        <div class="t-result">
+          <div class="t-result-val">3 unidades</div>
+          <div class="t-result-label">abertas em 2 anos de franquia</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S9: FAQ ═══ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-sticky">
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span>Dúvidas frequentes</span>
+        </div>
+        <h2 class="section-title" style="font-size:32px">Tem dúvidas? <em>Temos as respostas.</em></h2>
+        <p class="section-sub" style="font-size:15px">Perguntas comuns de quem está avaliando o investimento.</p>
+        <div class="faq-form-mini">
+          <div class="faq-form-mini-title">Ainda tem dúvidas?</div>
+          <p class="faq-form-mini-sub">Fale diretamente com um consultor de expansão.</p>
+          <button class="form-submit" style="font-size:14px;padding:12px">Falar com um consultor agora →</button>
+        </div>
+      </div>
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Preciso ser dentista para abrir uma clínica OdontoCompany?</span>
+            <div class="faq-chevron"><svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Não. A grande maioria dos nossos franqueados não é dentista. O franqueado é o gestor do negócio — você contrata um dentista responsável técnico ou faz uma parceria com um sócio técnico. A OdontoCompany apoia na seleção e contratação do profissional certo para sua unidade.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Quanto tempo leva do contrato assinado até a inauguração?</span>
+            <div class="faq-chevron"><svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Em média <strong>4 a 6 meses</strong> entre a assinatura do contrato e a abertura da clínica. Esse prazo inclui a escolha e negociação do ponto comercial, execução das obras, montagem dos equipamentos e treinamento da equipe. O time de implantação da OdontoCompany acompanha cada etapa.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Qual o prazo real de retorno do investimento?</span>
+            <div class="faq-chevron"><svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">A média da rede é <strong>18 a 24 meses</strong> para retorno completo do investimento, com ponto de equilíbrio a partir do 6º mês de operação. Esses números variam conforme a cidade, o ponto comercial, a gestão do franqueado e o perfil de demanda local. Nosso consultor pode mostrar a projeção específica para sua cidade.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Os R$ 450k cobrem tudo ou haverá custos extras?</span>
+            <div class="faq-chevron"><svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">O investimento a partir de R$ 450 mil inclui <strong>taxa de franquia, reforma do imóvel, aquisição de equipamentos e capital de giro</strong>. O valor exato varia conforme o modelo de clínica (porte da cidade) e as condições do imóvel escolhido. Seu consultor apresentará uma planilha detalhada antes de qualquer decisão.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Como funciona o suporte após a abertura da clínica?</span>
+            <div class="faq-chevron"><svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">O suporte é contínuo. Nos primeiros meses, o Núcleo de Acompanhamento Inicial faz um suporte intensivo de crescimento. Após esse período, você conta com equipe de operações, marketing, TI e treinamento de forma permanente — além da plataforma digital Minha OdontoCompany com conteúdos e guias atualizados.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Posso abrir mais de uma unidade?</span>
+            <div class="faq-chevron"><svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Sim. Temos muitos franqueados multi-unit operando 2, 3 ou mais unidades. Após a estabilização da primeira clínica (geralmente entre 12 e 18 meses), o processo de abertura da segunda fica mais ágil porque você já domina os processos. Existem condições especiais para franqueados que expandem a rede.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">O que diferencia a OdontoCompany das outras franquias odontológicas?</span>
+            <div class="faq-chevron"><svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">Três diferenciais que nenhum concorrente tem no mesmo nível: <strong>(1) Escala</strong> — somos a maior rede com +1.000 unidades, o que gera poder de negociação e marca reconhecida. <strong>(2) Mídia</strong> — investimento em TV nacional com a Eliana como embaixadora. <strong>(3) Tecnologia</strong> — plataforma digital própria, CRM integrado e método exclusivo de captação de pacientes via WhatsApp.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span class="faq-q-text">Como é o processo para se tornar franqueado?</span>
+            <div class="faq-chevron"><svg fill="none" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></div>
+          </div>
+          <div class="faq-answer"><div class="faq-answer-inner">São 5 etapas: <strong>(1)</strong> Preenchimento do formulário e recebimento do plano de negócio. <strong>(2)</strong> Reunião com consultor de expansão. <strong>(3)</strong> Visita a uma unidade em operação. <strong>(4)</strong> Aprovação cadastral e assinatura do contrato. <strong>(5)</strong> Início do processo de implantação com suporte da equipe OdontoCompany.</div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ S10: CTA FINAL ═══ -->
+<section class="cta-section" id="cta">
+  <div class="cta-bg-glow"></div>
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <div class="section-eyebrow" style="margin-bottom:20px">
+          <div class="section-eyebrow-line" style="background:var(--lime)"></div>
+          <span style="color:var(--lime)">Próximo passo</span>
+        </div>
+        <h2 class="cta-title">
+          Territórios disponíveis na sua cidade — <em>consulte antes que feche</em>
+        </h2>
+        <p class="cta-sub">A OdontoCompany limita o número de unidades por território para proteger o negócio de cada franqueado. Verifique a disponibilidade da sua cidade agora.</p>
+        <div class="cta-urgency">
+          <div class="urgency-dot"></div>
+          <p class="urgency-text"><strong>Territórios exclusivos</strong> por cidade — uma vez fechado, não abre novamente para o mesmo bairro.</p>
+        </div>
+        <div class="cta-mini-stats">
+          <div class="cta-mini-stat">
+            <div class="cta-mini-val">35 anos</div>
+            <div class="cta-mini-label">de história</div>
+          </div>
+          <div class="cta-mini-stat">
+            <div class="cta-mini-val">+1.000</div>
+            <div class="cta-mini-label">unidades abertas</div>
+          </div>
+          <div class="cta-mini-stat">
+            <div class="cta-mini-val">100%</div>
+            <div class="cta-mini-label">presença nacional</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-form-card">
+        <div class="hero-form-top">
+          <div class="hero-form-title">Verificar territórios disponíveis</div>
+          <p class="hero-form-sub">Receba o plano de negócio completo com projeção da sua cidade</p>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Nome completo</label>
+          <input class="form-input" type="text" placeholder="Seu nome">
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp com DDD</label>
+          <input class="form-input" type="tel" placeholder="(00) 00000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Cidade de interesse</label>
+          <input class="form-input" type="text" placeholder="Ex: Maringá – PR">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Capital disponível para investimento</label>
+          <select class="form-input">
+            <option value="" disabled selected>Selecione uma faixa</option>
+            <option>R$ 450k – R$ 600k</option>
+            <option>R$ 600k – R$ 900k</option>
+            <option>Acima de R$ 900k (multi-unit)</option>
+          </select>
+        </div>
+        <button class="form-submit">Verificar disponibilidade na minha cidade</button>
+        <div class="form-trust" style="margin-top:10px">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color:var(--gray-400)"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span style="font-size:11px;color:var(--gray-400)">Sem compromisso. Resposta em até 2 horas úteis.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ FOOTER ═══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">OdontoCompany</div>
+      <div class="footer-info">
+        ODONTOCOMPANY FRANCHISING S.A. · CNPJ 12.817.681/0001-64<br>
+        Av. Ibirapuera, 2332 - Torre I - Indianópolis - São Paulo/SP · CEP 04028-900
+      </div>
+      <div class="footer-legal">
+        *Valores sujeitos ao mercado local e à atuação do franqueado.<br>
+        Metodologia OdontoCompany Franchising · Todos os direitos reservados.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/lenis@1.1.2/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+// ─── SMOOTH SCROLL (LENIS) ───
+const lenis = new Lenis({
+  autoRaf: true,
+  duration: 1.2,
+  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+});
+
+// ─── ANIMAÇÕES (GSAP) ───
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero Animations
+gsap.from(".hero-headline", { y: 50, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
+gsap.from(".hero-sub", { y: 30, opacity: 0, duration: 1, ease: "power3.out", delay: 0.4 });
+gsap.from(".hero-stats .hero-stat", { y: 30, opacity: 0, duration: 0.8, stagger: 0.1, ease: "power3.out", delay: 0.6 });
+gsap.from(".hero-ctas", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out", delay: 0.8 });
+gsap.from(".hero-form-card", { y: 50, opacity: 0, duration: 1.2, ease: "power4.out", delay: 0.5 });
+
+// Scroll Animations for Sections
+const animateSections = gsap.utils.toArray('.benefit-card, .market-card, .kpi-card, .support-item, .testimonial-card');
+animateSections.forEach((el) => {
+  gsap.from(el, {
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      toggleActions: "play none none none"
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    ease: "power3.out"
+  });
+});
+
+// Parallax Effects
+gsap.to(".hero-bg-glow", {
+  scrollTrigger: {
+    trigger: ".hero",
+    start: "top top",
+    end: "bottom top",
+    scrub: 1
+  },
+  y: 200,
+  scale: 1.2
+});
+
+gsap.to(".cta-bg-glow", {
+  scrollTrigger: {
+    trigger: ".cta-section",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 1
+  },
+  y: -150,
+  scale: 1.1
+});
+
+// ─── PLAYER DE VÍDEO ───
+const videos = {
+  expansao: {
+    id: 'VIDEO_ID_EXPANSAO',
+    duration: '3:42',
+    speaker: { initials: 'FN', name: 'Felipe Naresi', role: 'Diretor de Expansão e Implantação · OdontoCompany' },
+    label: 'Como funciona a franquia OdontoCompany'
+  },
+  fundador: {
+    id: 'VIDEO_ID_FUNDADOR',
+    duration: '5:10',
+    speaker: { initials: 'PZ', name: 'Dr. Paulo Zahr', role: 'Dentista, CEO e Fundador · OdontoCompany' },
+    label: 'A visão do fundador sobre a expansão'
+  },
+  clinica: {
+    id: 'VIDEO_ID_CLINICA',
+    duration: '2:28',
+    speaker: { initials: 'OC', name: 'OdontoCompany', role: 'Tour completo pela clínica modelo' },
+    label: 'Tour pela clínica modelo OdontoCompany'
+  }
+};
+let currentVideo = 'expansao';
+
+function playVideo() {
+  const v = videos[currentVideo];
+  const thumb = document.getElementById('videoThumb');
+  const iframe = document.getElementById('videoIframe');
+  iframe.src = 'https://www.youtube.com/embed/' + v.id + '?autoplay=1&rel=0&modestbranding=1';
+  thumb.style.transition = 'opacity 0.3s';
+  thumb.style.opacity = '0';
+  thumb.style.pointerEvents = 'none';
+  setTimeout(() => {
+    thumb.style.display = 'none';
+    iframe.style.display = 'block';
+  }, 300);
+}
+
+function switchVideo(btn, key) {
+  document.querySelectorAll('.video-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  currentVideo = key;
+  const v = videos[key];
+  const thumb = document.getElementById('videoThumb');
+  const iframe = document.getElementById('videoIframe');
+  // reset player
+  iframe.src = '';
+  iframe.style.display = 'none';
+  thumb.style.display = 'flex';
+  thumb.style.opacity = '1';
+  thumb.style.pointerEvents = 'auto';
+  // atualiza label
+  const lbl = thumb.querySelector('.video-thumb-label');
+  lbl.innerHTML = '<strong>Assista agora</strong>' + v.label;
+  thumb.querySelector('.video-duration').textContent = v.duration;
+  // atualiza speaker
+  const sp = document.getElementById('videoSpeaker');
+  sp.querySelector('.video-speaker-avatar').textContent = v.speaker.initials;
+  sp.querySelector('.video-speaker-name').textContent = v.speaker.name;
+  sp.querySelector('.video-speaker-role').textContent = v.speaker.role;
+  // atualiza miniatura ativa
+  document.querySelectorAll('.video-mini').forEach((m, i) => {
+    const keys = ['expansao', 'fundador', 'clinica'];
+    const isActive = keys[i] === key;
+    m.style.background = isActive ? 'rgba(181,232,0,0.08)' : 'rgba(255,255,255,0.05)';
+    m.style.borderColor = isActive ? 'rgba(181,232,0,0.2)' : 'rgba(255,255,255,0.1)';
+    m.querySelector('.video-mini-status').textContent = isActive ? '▶ Assistindo' : '';
+    m.querySelector('.video-mini-status').style.color = isActive ? 'var(--lime)' : 'rgba(255,255,255,0.4)';
+  });
+}
+
+function toggleFaq(el) {
+  const item = el.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => {
+    gsap.to(i.querySelector('.faq-answer'), { height: 0, duration: 0.4, ease: "power2.inOut" });
+    i.classList.remove('open');
+  });
+  if (!isOpen) {
+    item.classList.add('open');
+    const answer = item.querySelector('.faq-answer');
+    gsap.set(answer, { height: "auto" });
+    const fullHeight = answer.offsetHeight;
+    gsap.from(answer, { height: 0, duration: 0.4, ease: "power2.inOut" });
+  }
+}
+
+// Nav scroll effect com GSAP
+ScrollTrigger.create({
+  start: "top -40",
+  onEnter: () => gsap.to(".nav", { boxShadow: "0 4px 30px rgba(0,0,0,0.1)", background: "rgba(247,248,244,0.6)", backdropFilter: "blur(20px)", duration: 0.3 }),
+  onLeaveBack: () => gsap.to(".nav", { boxShadow: "none", background: "rgba(247,248,244,0.0)", backdropFilter: "blur(0px)", duration: 0.3 })
+});
+</script>
+</body>
+</html>
