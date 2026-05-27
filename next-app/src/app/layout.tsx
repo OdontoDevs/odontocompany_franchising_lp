@@ -8,10 +8,41 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+const brandLogo =
+  "https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/logo_odontocompany%20(2).svg";
+
+const pageTitle = "OdontoCompany Franchising - Seja um franqueado";
+const pageDescription =
+  "Abra sua clínica OdontoCompany com o suporte completo da maior rede de franquias odontológicas do Brasil. Invista em um negócio consolidado com marketing, gestão e operação prontos.";
+
 export const metadata: Metadata = {
-  title: "OdontoCompany Franchising - Seja um franqueado",
-  description:
-    "Abra sua clínica OdontoCompany com o suporte completo da maior rede de franquias odontológicas do Brasil. Invista em um negócio consolidado com marketing, gestão e operação prontos.",
+  title: pageTitle,
+  description: pageDescription,
+  icons: {
+    icon: brandLogo,
+    shortcut: brandLogo,
+    apple: brandLogo,
+  },
+  openGraph: {
+    title: pageTitle,
+    description: pageDescription,
+    url: "https://lp-odc.op7franquia.com.br/",
+    siteName: "OdontoCompany Franchising",
+    images: [
+      {
+        url: brandLogo,
+        alt: "OdontoCompany Franchising",
+      },
+    ],
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: pageTitle,
+    description: pageDescription,
+    images: [brandLogo],
+  },
 };
 
 export default function RootLayout({
