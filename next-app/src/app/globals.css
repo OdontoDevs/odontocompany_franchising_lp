@@ -2610,218 +2610,201 @@ section { position: relative; }
   line-height: 1.6;
 }
 
-.roadmap-print-board {
+/* ---- Header kicker with side lines ---- */
+.roadmap-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--green-600, #38B549);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.roadmap-kicker::before,
+.roadmap-kicker::after {
+  content: "";
+  width: 32px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(56, 181, 73, 0.7);
+}
+
+/* ---- Zig-zag steps ---- */
+.roadmap-zig {
   position: relative;
-  overflow: hidden;
-  border-radius: 34px;
-  padding: 36px 22px 34px;
-  background:
-    radial-gradient(circle at 10% 80%, rgba(56, 181, 73, 0.10) 0%, rgba(56, 181, 73, 0) 22%),
-    radial-gradient(circle at 88% 18%, rgba(168, 209, 86, 0.10) 0%, rgba(168, 209, 86, 0) 18%),
-    linear-gradient(180deg, #0d5a38 0%, #0a4a2f 100%);
-  box-shadow:
-    0 28px 70px rgba(9, 62, 40, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  width: 100%;
+  margin: 12px auto 0;
+  overflow: visible;
 }
 
-.roadmap-print-board__glow {
+.roadmap-zig__line {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.roadmap-zig__line path {
+  fill: none;
+  stroke: rgba(56, 181, 73, 0.75);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 5 8;
+}
+
+.roadmap-zig__node {
   position: absolute;
-  border-radius: 9999px;
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(56, 181, 73, 0.18) 0%, rgba(56, 181, 73, 0) 72%);
-  filter: blur(2px);
+  width: 84px;
+  height: 84px;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 
-.roadmap-print-board__glow--left {
-  width: 220px;
-  height: 220px;
-  left: -70px;
-  bottom: -40px;
+.roadmap-zig__box {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 26px 26px 26px 6px;
+  background: #ffffff;
+  box-shadow: 0 14px 30px rgba(15, 38, 28, 0.1);
 }
 
-.roadmap-print-board__glow--right {
-  width: 260px;
-  height: 260px;
-  right: 40px;
-  bottom: 20px;
-}
-
-.roadmap-print-board__track {
-  position: absolute;
-  left: 2.5rem;
-  right: 2.5rem;
-  top: 50%;
-  height: 0;
-  border-top: 2px dashed rgba(199, 235, 171, 0.45);
-  transform: translateY(-50%);
-}
-
-.roadmap-print-board__track::before,
-.roadmap-print-board__track::after {
+/* green layered backing (OdontoCompany leaf motif) */
+.roadmap-zig__box::before {
   content: "";
   position: absolute;
-  top: 50%;
-  width: 16px;
-  height: 16px;
-  border-radius: 9999px;
-  background: rgba(76, 135, 81, 0.95);
-  transform: translateY(-50%);
-  box-shadow: 0 0 0 6px rgba(199, 235, 171, 0.08);
+  inset: 0;
+  transform: translate(7px, 7px);
+  border-radius: 26px 6px 26px 26px;
+  background: #38B549;
+  z-index: -1;
 }
 
-.roadmap-print-board__track::before {
-  left: -2px;
+.roadmap-zig__box--active {
+  background: #38B549;
 }
 
-.roadmap-print-board__track::after {
-  right: -2px;
+.roadmap-zig__box--active::before {
+  background: #1f7a31;
 }
 
-.roadmap-print-grid {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  grid-template-rows: auto auto;
-  gap: 22px 14px;
-  min-height: 360px;
-  align-items: start;
+.roadmap-zig__box--active .roadmap-zig__icon {
+  color: #ffffff;
 }
 
-.roadmap-print-step {
-  --roadmap-accent: #38B549;
+.roadmap-zig__icon {
+  width: 34px;
+  height: 34px;
+  color: #38B549;
+  stroke-width: 1.75;
+}
+
+.roadmap-zig__text {
+  position: absolute;
+  left: 50%;
+  width: 150px;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
   text-align: center;
-  gap: 10px;
-  min-width: 0;
 }
 
-.roadmap-print-step--top {
-  justify-content: flex-start;
-  padding-top: 4px;
+.roadmap-zig__node--top .roadmap-zig__text {
+  bottom: calc(100% + 18px);
 }
 
-.roadmap-print-step--bottom {
-  justify-content: flex-start;
-  padding-top: 34px;
+.roadmap-zig__node--bottom .roadmap-zig__text {
+  top: calc(100% + 18px);
+  flex-direction: column-reverse;
 }
 
-.roadmap-print-step__label {
-  max-width: 168px;
-  min-height: 34px;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 11px;
+.roadmap-zig__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 24px;
+  padding: 0 9px;
+  border-radius: 9999px;
+  background: rgba(56, 181, 73, 0.14);
+  color: #2f9e3f;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.roadmap-zig__label {
+  color: #2D7270;
+  font-size: 13px;
   line-height: 1.25;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
 
-.roadmap-print-step__card {
-  position: relative;
-  width: 68px;
-  height: 68px;
-  border-radius: 16px 16px 8px 16px;
-  background: linear-gradient(180deg, #ffffff 0%, #f7fbf4 100%);
-  border: 1.5px solid rgba(168, 209, 86, 0.95);
-  box-shadow:
-    0 16px 36px rgba(0, 0, 0, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+/* ---- Mobile stacked list ---- */
+.roadmap-ziglist {
+  display: none;
+}
+
+.roadmap-zigcard {
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(45, 114, 112, 0.1);
+  box-shadow: 0 10px 26px rgba(15, 38, 28, 0.07);
 }
 
-.roadmap-print-step__card::after {
-  content: "";
-  position: absolute;
-  inset: 5px;
-  border-radius: 12px 12px 5px 12px;
-  background: linear-gradient(180deg, rgba(56, 181, 73, 0.08) 0%, rgba(45, 114, 112, 0.02) 100%);
+.roadmap-zigcard .roadmap-zig__box {
+  flex: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 18px 18px 18px 5px;
 }
 
-.roadmap-print-step__badge {
-  position: absolute;
-  top: 6px;
-  right: 6px;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 20px;
-  height: 20px;
-  padding: 0 6px;
-  border-radius: 9999px;
-  background: rgba(45, 114, 112, 0.1);
-  color: var(--green-700);
-  font-size: 9px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+.roadmap-zigcard .roadmap-zig__box::before {
+  transform: translate(5px, 5px);
+  border-radius: 18px 5px 18px 18px;
 }
 
-.roadmap-print-step__icon {
-  position: relative;
-  z-index: 1;
+.roadmap-zigcard .roadmap-zig__icon {
   width: 26px;
   height: 26px;
-  color: var(--roadmap-accent);
 }
 
-.roadmap-print-step__rail {
-  width: 1px;
-  height: 22px;
-  border-left: 1px dashed rgba(199, 235, 171, 0.7);
-}
-
-.roadmap-print-step__ribbon {
-  width: 100%;
-  max-width: 168px;
+.roadmap-zigcard__text {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 30px;
-  padding: 0 14px 0 12px;
-  background: var(--roadmap-accent);
-  color: #ffffff;
-  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 12px 50%);
-  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.16);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  text-align: left;
 }
 
-.roadmap-print-step__ribbon span {
-  font-size: 10px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  opacity: 0.92;
+.roadmap-zigcard__text .roadmap-zig__label {
+  text-align: left;
 }
 
-.roadmap-print-step__ribbon strong {
-  font-size: 10px;
-  line-height: 1.1;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-}
-
-.roadmap-print-step__body {
-  max-width: 168px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.80);
-  font-size: 12px;
-  line-height: 1.55;
-}
-
-@media (max-width: 1200px) {
-  .roadmap-print-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-template-rows: auto auto;
-    min-height: auto;
+@media (max-width: 980px) {
+  .roadmap-zig {
+    display: none;
   }
 
-  .roadmap-print-step--bottom {
-    padding-top: 28px;
+  .roadmap-ziglist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 28px;
   }
 }
 
@@ -2833,38 +2816,102 @@ section { position: relative; }
   .roadmap-print-container {
     padding: 0 20px;
   }
+}
 
-  .roadmap-print-board {
-    border-radius: 28px;
-    padding: 34px 18px 28px;
+@media (max-width: 560px) {
+  .roadmap-ziglist {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- Clinic photo carousel (coverflow) ---- */
+.clinic-carousel {
+  margin-top: 64px;
+}
+
+.clinic-carousel__stage {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+}
+
+.clinic-carousel__card {
+  position: absolute;
+  width: 440px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out,
+    filter 0.5s ease-in-out;
+}
+
+.clinic-carousel__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 22px;
+  border: 2px solid rgba(45, 114, 112, 0.12);
+  box-shadow: 0 26px 60px rgba(15, 38, 28, 0.28);
+}
+
+.clinic-carousel__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  height: 44px;
+  width: 44px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+}
+
+.clinic-carousel__nav--prev {
+  left: 8px;
+}
+
+.clinic-carousel__nav--next {
+  right: 8px;
+}
+
+@media (min-width: 768px) {
+  .clinic-carousel__nav--prev {
+    left: 32px;
   }
 
-  .roadmap-print-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: auto;
-    gap: 18px 12px;
+  .clinic-carousel__nav--next {
+    right: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .clinic-carousel {
+    margin-top: 48px;
   }
 
-  .roadmap-print-board__track,
-  .roadmap-print-board__glow {
-    display: none;
+  .clinic-carousel__stage {
+    height: 230px;
   }
 
-  .roadmap-print-step--bottom {
-    padding-top: 0;
-  }
-
-  .roadmap-print-step__label,
-  .roadmap-print-step__ribbon,
-  .roadmap-print-step__body {
-    max-width: 100%;
+  .clinic-carousel__card {
+    width: 300px;
+    height: 190px;
   }
 }
 
 @media (max-width: 520px) {
-  .roadmap-print-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+  .clinic-carousel__stage {
+    height: 190px;
+  }
+
+  .clinic-carousel__card {
+    width: 250px;
+    height: 158px;
   }
 }
 

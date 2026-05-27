@@ -3,108 +3,89 @@
 import type { CSSProperties } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
-  FileText,
-  PenLine,
-  GraduationCap,
-  Megaphone,
-  ShieldCheck,
   Monitor,
+  FileText,
+  UserCheck,
+  PenLine,
+  Building2,
+  Armchair,
+  GraduationCap,
+  ShieldCheck,
+  BarChart3,
 } from "lucide-react";
+import ClinicCarousel from "@/components/ClinicCarousel";
 
 type RoadmapItem = {
   step: string;
   label: string;
-  title: string;
-  body: string;
   icon: LucideIcon;
-  accent: string;
-  position: "top" | "bottom";
+  highlight?: boolean;
 };
 
 const roadmapItems: RoadmapItem[] = [
-  {
-    step: "01",
-    label: "COF (Circular de Oferta de Franquia)",
-    title: "Análise de ponto",
-    body: "Dados de mercado e perfil de consumo.",
-    icon: FileText,
-    accent: "#2D7270",
-    position: "top",
-  },
-  {
-    step: "02",
-    label: "Assinatura do contrato",
-    title: "Obra e identidade",
-    body: "Projeto padrão com fornecedores homologados.",
-    icon: PenLine,
-    accent: "#38B549",
-    position: "bottom",
-  },
-  {
-    step: "03",
-    label: "Adequação técnica da unidade clínica",
-    title: "Treinamento",
-    body: "Capacitação completa da equipe antes da inauguração.",
-    icon: GraduationCap,
-    accent: "#A8D156",
-    position: "top",
-  },
-  {
-    step: "04",
-    label: "Inauguração da clínica",
-    title: "Mídia & Captação",
-    body: "Campanhas nacionais: digital, TV, rádio e BOT.",
-    icon: Megaphone,
-    accent: "#4C8751",
-    position: "bottom",
-  },
-  {
-    step: "05",
-    label: "Núcleo de Acompanhamento Inicial",
-    title: "Pós-inauguração",
-    body: "Suporte intensivo na curva de maturação.",
-    icon: ShieldCheck,
-    accent: "#38B549",
-    position: "top",
-  },
-  {
-    step: "06",
-    label: "Universidade Corporativa",
-    title: "Tecnologia & CRM",
-    body: "Software de gestão e plataforma Minha OdontoCompany.",
-    icon: Monitor,
-    accent: "#2D7270",
-    position: "bottom",
-  },
+  { step: "01", label: "Conheça o nosso projeto", icon: Monitor },
+  { step: "02", label: "COF (Circular de Oferta de Franquia)", icon: FileText },
+  { step: "03", label: "Aprovação do candidato e assinatura de contrato", icon: UserCheck },
+  { step: "04", label: "Assinatura do contrato", icon: PenLine },
+  { step: "05", label: "Escolha do imóvel e unidade clínica", icon: Building2 },
+  { step: "06", label: "Adequação técnica da unidade clínica", icon: Armchair },
+  { step: "07", label: "Universidade Corporativa", icon: GraduationCap },
+  { step: "08", label: "Inauguração da clínica", icon: ShieldCheck, highlight: true },
+  { step: "09", label: "Núcleo de Acompanhamento e Suporte", icon: BarChart3 },
 ];
 
-function RoadmapStep({ item, index }: { item: RoadmapItem; index: number }) {
+const VIEW_W = 1200;
+const VIEW_H = 360;
+const TOP_Y = 150;
+const BOTTOM_Y = 230;
+
+const isTop = (index: number) => index % 2 === 1;
+const xFor = (index: number) =>
+  ((index + 0.5) / roadmapItems.length) * VIEW_W;
+
+const ZIG_PATH = roadmapItems
+  .map((_, index) => {
+    const y = isTop(index) ? TOP_Y : BOTTOM_Y;
+    return `${index === 0 ? "M" : "L"}${xFor(index).toFixed(1)},${y}`;
+  })
+  .join(" ");
+
+function ZigBox({ item }: { item: RoadmapItem }) {
   const Icon = item.icon;
+  return (
+    <div className={`roadmap-zig__box${item.highlight ? " roadmap-zig__box--active" : ""}`}>
+      <Icon className="roadmap-zig__icon" aria-hidden="true" />
+    </div>
+  );
+}
+
+function ZigNode({ item, index }: { item: RoadmapItem; index: number }) {
+  const top = isTop(index);
+  const left = (xFor(index) / VIEW_W) * 100;
+  const topPct = ((top ? TOP_Y : BOTTOM_Y) / VIEW_H) * 100;
 
   return (
-    <article
-      className={`roadmap-print-step roadmap-print-step--${item.position}`}
-      style={{
-        "--roadmap-accent": item.accent,
-        gridColumn: index + 1,
-        gridRow: item.position === "top" ? 1 : 2,
-      } as CSSProperties}
+    <div
+      className={`roadmap-zig__node roadmap-zig__node--${top ? "top" : "bottom"}`}
+      style={{ left: `${left}%`, top: `${topPct}%` } as CSSProperties}
     >
-      <div className="roadmap-print-step__label">{item.label}</div>
-
-      <div className="roadmap-print-step__card">
-        <div className="roadmap-print-step__badge">{item.step}</div>
-        <Icon className="roadmap-print-step__icon" aria-hidden="true" />
+      <div className="roadmap-zig__text">
+        <span className="roadmap-zig__num">{item.step}</span>
+        <span className="roadmap-zig__label">{item.label}</span>
       </div>
+      <ZigBox item={item} />
+    </div>
+  );
+}
 
-      <div className="roadmap-print-step__rail" />
-
-      <div className="roadmap-print-step__ribbon">
-        <span>{item.step}</span>
-        <strong>{item.title}</strong>
+function ZigCard({ item }: { item: RoadmapItem }) {
+  return (
+    <article className="roadmap-zigcard">
+      <ZigBox item={item} />
+      <div className="roadmap-zigcard__text">
+        <span className="roadmap-zig__num">{item.step}</span>
+        <span className="roadmap-zig__label">{item.label}</span>
       </div>
-
-      <p className="roadmap-print-step__body">{item.body}</p>
     </article>
   );
 }
@@ -114,25 +95,35 @@ export default function RoadmapSection() {
     <section className="roadmap-print-section" id="suporte">
       <div className="roadmap-print-container">
         <div className="roadmap-print-header">
-          <div className="section-kicker section-kicker--light">Passo a passo</div>
+          <div className="roadmap-kicker">Etapas do nosso processo</div>
           <h2>
-            Trilha e Suporte ao <br />
-            <span className="text-[#38B549]">Franqueado</span>
+            Passo a passo para se tornar um{" "}
+            <span className="text-[#38B549]">franqueado de sucesso!</span>
           </h2>
-          <p>Do primeiro contato até a maturidade da sua clínica, passo a passo.</p>
+          <p>É mais rápido do que você imagina.</p>
         </div>
 
-        <div className="roadmap-print-board" aria-label="Trilha e suporte ao franqueado">
-          <div className="roadmap-print-board__glow roadmap-print-board__glow--left" />
-          <div className="roadmap-print-board__glow roadmap-print-board__glow--right" />
-          <div className="roadmap-print-board__track" />
+        <div className="roadmap-zig" aria-label="Passo a passo para se tornar um franqueado">
+          <svg
+            className="roadmap-zig__line"
+            viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+            role="presentation"
+          >
+            <path d={ZIG_PATH} />
+          </svg>
 
-          <div className="roadmap-print-grid">
-            {roadmapItems.map((item, index) => (
-              <RoadmapStep key={item.step} item={item} index={index} />
-            ))}
-          </div>
+          {roadmapItems.map((item, index) => (
+            <ZigNode key={item.step} item={item} index={index} />
+          ))}
         </div>
+
+        <div className="roadmap-ziglist">
+          {roadmapItems.map((item) => (
+            <ZigCard key={item.step} item={item} />
+          ))}
+        </div>
+
+        <ClinicCarousel />
       </div>
     </section>
   );
