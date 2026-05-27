@@ -154,7 +154,7 @@ a { color: inherit; text-decoration: none; }
     border-color 0.55s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: background, backdrop-filter, box-shadow, border-color;
 }
-.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.nav-inner { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .nav-logo {
   font-family: var(--serif); font-size: 22px; color: var(--green-800);
   display: flex; align-items: center; gap: 10px;
@@ -167,9 +167,26 @@ a { color: inherit; text-decoration: none; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-links a { font-size: 14px; color: white; font-weight: 500; transition: color 0.2s; }
 .nav-links a:hover { color: var(--lime); }
-.nav-hamburger { display: none; }
+.nav-hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
 .nav-hamburger-line { background: white; transition: background 0.3s; }
 .nav-mobile-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 0;
+  z-index: 60;
+  width: min(340px, calc(100vw - 40px));
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -180,6 +197,11 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
+}
+.nav-hamburger-line {
+  width: 20px;
+  height: 2px;
+  border-radius: 9999px;
 }
 .nav-mobile-link {
   display: block;
@@ -196,6 +218,12 @@ a { color: inherit; text-decoration: none; }
 .nav-mobile-link:hover {
   background: rgba(255, 255, 255, 0.06);
   color: var(--lime) !important;
+}
+.nav-mobile-link--cta {
+  margin-top: 4px;
+  background: var(--cta-green);
+  box-shadow: 0 0 22px var(--cta-green-glow);
+  text-align: center;
 }
 .nav-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -786,7 +814,7 @@ section { padding: 96px 0; }
 /* --- S4: VANTAGENS (Light Glass Premium) --- */
 .benefits-section-new {
   position: relative;
-  background-color: #f8fafc;
+  background-color: #ffffff;
   padding: 120px 0;
   overflow: hidden;
   z-index: 1;
@@ -1910,9 +1938,15 @@ section { padding: 96px 0; }
 .footer-info { @apply font-sans text-small font-[400]; color: rgba(255,255,255,0.95); line-height: 1.6; max-width: 420px; }
 .footer-legal { @apply font-sans text-small font-[400]; color: rgba(255,255,255,0.84); }
 .footer-op7 {
-  min-width: 180px;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: transparent;
+  border: 0;
 }
-.footer-op7 img {
+.footer-op7-logo {
+  width: 38px;
+  height: 38px;
   filter: drop-shadow(0 2px 10px rgba(0,0,0,0.12));
 }
 
@@ -2196,6 +2230,20 @@ section { position: relative; }
   .ben-card-desc { font-size: 14px; }
   
   /* Numbers section */
+  .kpi-mobile-section {
+    padding-left: 22px !important;
+    padding-right: 22px !important;
+  }
+  .kpi-mobile-grid {
+    width: 100%;
+    gap: 20px !important;
+  }
+  .kpi-mobile-card {
+    width: 100%;
+    min-height: 142px;
+    padding: 26px 18px !important;
+    border-radius: 22px !important;
+  }
   .numbers-title { font-size: 24px !important; }
   .numbers-sub { font-size: 14px; }
   .kpi-cards-row { gap: 16px; }

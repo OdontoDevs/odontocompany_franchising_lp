@@ -9,7 +9,7 @@ interface KpiCardProps {
 
 function KpiCard({ label, value }: KpiCardProps) {
   return (
-    <div className="bg-white rounded-3xl p-8 text-center glow-card flex flex-col justify-center min-h-[160px] transition-transform duration-300 hover:scale-105">
+    <div className="kpi-mobile-card bg-white rounded-3xl p-8 text-center glow-card flex flex-col justify-center min-h-[160px] transition-transform duration-300 hover:scale-105">
       <span className="text-slate-700 font-bold text-[11px] md:text-xs uppercase tracking-tight mb-2 leading-tight">
         {label}
       </span>
@@ -37,7 +37,7 @@ function InfoItem({ icon, children }: InfoItemProps) {
 export default function KPISection() {
   return (
     <section
-      className="bg-grid-pattern py-20 px-4 md:py-28 flex flex-col items-center justify-center w-full"
+      className="kpi-mobile-section bg-grid-pattern py-20 px-4 md:py-28 flex flex-col items-center justify-center w-full"
       id="numeros"
     >
       <div className="max-w-6xl w-full mx-auto flex flex-col items-center gap-12">
@@ -52,7 +52,7 @@ export default function KPISection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+        <div className="kpi-mobile-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
           <KpiCard label="FATURAMENTO MÉDIO POR ANO" value="R$ 1,4M" />
           <KpiCard label="INVESTIMENTO INICIAL TOTAL" value="R$ 450k" />
           <KpiCard label="LUCRATIVIDADE MÉDIA MENSAL" value="20-25%" />

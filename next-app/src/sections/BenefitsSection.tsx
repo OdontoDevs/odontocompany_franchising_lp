@@ -99,9 +99,6 @@ const benefits = [
 export default function BenefitsSection() {
   return (
     <section className="benefits-section-new" id="vantagens">
-      <div className="ben-bg-shape shape-1" />
-      <div className="ben-bg-shape shape-2" />
-
       <div className="ben-inner">
         <div className="ben-header fade-up-item">
           <div className="section-kicker section-kicker--light">O que você recebe</div>
