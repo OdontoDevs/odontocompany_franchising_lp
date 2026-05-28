@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { videos, VideoKey } from "@/data/videos";
+import { videos, speakers, VideoKey } from "@/data/videos";
 
 export default function VideoSection() {
   const [activeVideo, setActiveVideo] = useState<VideoKey>("expansao");
@@ -9,10 +9,10 @@ export default function VideoSection() {
 
   const handleVideoTab = useCallback((key: VideoKey) => {
     setActiveVideo(key);
-    setIsPlaying(key === "expansao");
+    setIsPlaying(false);
   }, []);
 
-  const isSpeakerSelected = activeVideo === "expansao";
+  const isSpeakerActive = activeVideo === "expansao";
 
   return (
     <section className="video-section" id="video">
@@ -39,6 +39,12 @@ export default function VideoSection() {
                 Expansão e modelo
               </button>
               <button
+                className={`video-tab${activeVideo === "paulo" ? " active" : ""}`}
+                onClick={() => handleVideoTab("paulo")}
+              >
+                Dr. Paulo Zahr
+              </button>
+              <button
                 className={`video-tab${activeVideo === "clinica" ? " active" : ""}`}
                 onClick={() => handleVideoTab("clinica")}
               >
@@ -50,20 +56,17 @@ export default function VideoSection() {
               className="video-speaker transition-all duration-300"
               id="videoSpeaker"
               style={
-                isSpeakerSelected
-                  ? {
-                      borderColor: "rgba(181,232,0,0.45)",
-                      background: "rgba(181,232,0,0.08)",
-                    }
+                isSpeakerActive
+                  ? { borderColor: "rgba(181,232,0,0.45)", background: "rgba(181,232,0,0.08)" }
                   : {}
               }
             >
               <img
-                src="https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/felipe_naresi.jpg"
+                src={speakers.expansao.img}
                 alt="Felipe Naresi"
                 className="w-12 h-12 rounded-full object-cover shadow-lg transition-all duration-300"
                 style={
-                  isSpeakerSelected
+                  isSpeakerActive
                     ? { border: "2px solid rgba(181,232,0,0.5)" }
                     : { border: "1px solid rgba(255,255,255,0.1)" }
                 }
@@ -71,7 +74,7 @@ export default function VideoSection() {
               <div>
                 <div
                   className="video-speaker-name transition-colors duration-300"
-                  style={isSpeakerSelected ? { color: "var(--lime)" } : {}}
+                  style={isSpeakerActive ? { color: "var(--lime)" } : {}}
                 >
                   Felipe Naresi
                 </div>

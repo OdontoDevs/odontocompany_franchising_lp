@@ -9,7 +9,7 @@ export default function HeroSection() {
       <div className="hero-overlay" />
 
       <div className="hero-stats" aria-hidden="true">
-        <div className="hero-stat hero-stat--1 animate-in delay-3">
+        <div className="hero-stat hero-stat--1 fade-in-soft delay-3">
           <span className="hero-stat__icon">
             <TrendingUp />
           </span>
@@ -19,7 +19,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="hero-stat hero-stat--2 animate-in delay-4">
+        <div className="hero-stat hero-stat--2 fade-in-soft delay-4">
           <span className="hero-stat__icon">
             <Clock />
           </span>
@@ -29,7 +29,7 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="hero-stat hero-stat--3 animate-in delay-5">
+        <div className="hero-stat hero-stat--3 fade-in-soft delay-5">
           <span className="hero-stat__icon">
             <Banknote />
           </span>
@@ -47,7 +47,7 @@ export default function HeroSection() {
           </h1>
           <p className="hero-sub animate-in delay-3">
             +1.000 unidades. +6 milhões de pacientes. Modelo testado em 35 anos
-            de mercado. Retorno do investimento a partir do 18º mês.
+            de mercado. Retorno do investimento a partir do 24º mês.
           </p>
           <div className="fade-in-soft delay-4 max-w-lg mt-6 hero-ctas">
             <CtaFunnel />
