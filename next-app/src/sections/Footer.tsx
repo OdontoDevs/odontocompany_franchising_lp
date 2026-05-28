@@ -30,7 +30,7 @@ export default function Footer() {
             className="footer-op7 flex items-center justify-center"
           >
             <img
-              src="https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/logo/op7/logo.svg"
+              src="https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/logo/op7/logo_op7_sem_franchising.svg"
               alt="OP7"
               className="footer-op7-logo object-contain"
             />

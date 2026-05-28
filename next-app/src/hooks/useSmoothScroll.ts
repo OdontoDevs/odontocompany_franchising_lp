@@ -25,7 +25,7 @@ export function useSmoothScroll() {
     // Hero entrance
     gsap.from(".hero-headline", { y: 50, opacity: 0, duration: 1, ease: "power3.out", delay: 0.2 });
     gsap.from(".hero-sub", { y: 30, opacity: 0, duration: 1, ease: "power3.out", delay: 0.4 });
-    gsap.from(".hero-ctas", { y: 20, opacity: 0, duration: 0.8, ease: "power3.out", delay: 0.6 });
+    gsap.from(".hero-ctas", { opacity: 0, duration: 0.8, ease: "power3.out", delay: 0.6, clearProps: "transform" });
     gsap.from(".hero-ticker", { y: 100, opacity: 0, duration: 1, ease: "power3.out", delay: 0.8 });
 
     // Scroll reveal for cards

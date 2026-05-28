@@ -17,7 +17,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const totalSteps = 6;
 
-export default function CtaFunnel() {
+export default function CtaFunnel({ light = false }: { light?: boolean }) {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -59,7 +59,7 @@ export default function CtaFunnel() {
 
   if (success) {
     return (
-      <div className="cta-form-card flex flex-col items-center justify-center py-12 text-center">
+      <div className={`cta-form-card${light ? " cta-form-card--light" : ""} flex flex-col items-center justify-center py-12 text-center`}>
         <CheckCircle2 className="w-16 h-16 text-[var(--lime)] mb-4" />
         <h3 className="hero-form-title mb-2">Solicitação enviada.</h3>
         <p className="hero-form-sub mb-6">
@@ -76,7 +76,7 @@ export default function CtaFunnel() {
   }
 
   return (
-    <div className="cta-form-card overflow-hidden relative">
+    <div className={`cta-form-card${light ? " cta-form-card--light" : ""} overflow-hidden relative`}>
       <div className="absolute top-0 left-0 w-full h-1 bg-white/5">
         <div
           className="h-full bg-[var(--lime)] transition-all duration-500 ease-out"

@@ -42,6 +42,9 @@ export default function KPISection() {
     >
       <div className="max-w-6xl w-full mx-auto flex flex-col items-center gap-12">
         <div className="text-center space-y-4">
+          <div className="section-kicker section-kicker--dark">
+            Sua futura franquia
+          </div>
           <h2 className="text-white text-4xl md:text-5xl tracking-tight font-black leading-tight">
             Os números da <br />
             <span className="text-[var(--lime)]">sua futura franquia</span>

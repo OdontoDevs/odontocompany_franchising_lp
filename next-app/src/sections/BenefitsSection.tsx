@@ -10,11 +10,26 @@ interface BenefitCardProps {
 }
 
 function BenefitCard({ icon, title, description, delay }: BenefitCardProps) {
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => el.classList.add("is-visible"), delay);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [delay]);
+
   return (
-    <div
-      className="ben-card fade-up-item"
-      style={{ animationDelay: `${delay}ms` }}
-    >
+    <div ref={ref} className="ben-card fade-up-item">
       <div className="ben-card-topbar" />
       <div className="ben-icon-wrap">{icon}</div>
       <h3 className="ben-card-title">{title}</h3>

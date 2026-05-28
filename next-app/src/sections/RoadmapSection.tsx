@@ -95,7 +95,9 @@ export default function RoadmapSection() {
     <section className="roadmap-print-section" id="suporte">
       <div className="roadmap-print-container">
         <div className="roadmap-print-header">
-          <div className="roadmap-kicker">Etapas do nosso processo</div>
+          <div className="section-kicker section-kicker--light">
+            Etapas do nosso processo
+          </div>
           <h2>
             Passo a passo para se tornar um{" "}
             <span className="text-[#38B549]">franqueado de sucesso!</span>
