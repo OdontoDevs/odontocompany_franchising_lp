@@ -1,18 +1,16 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { videos, speakers, VideoKey } from "@/data/videos";
+import { videos, VideoKey } from "@/data/videos";
 
 export default function VideoSection() {
-  const [activeVideo, setActiveVideo] = useState<VideoKey>("expansao");
+  const [activeVideo, setActiveVideo] = useState<VideoKey>("paulo");
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleVideoTab = useCallback((key: VideoKey) => {
     setActiveVideo(key);
     setIsPlaying(false);
   }, []);
-
-  const isSpeakerActive = activeVideo === "expansao";
 
   return (
     <section className="video-section" id="video">
@@ -33,16 +31,16 @@ export default function VideoSection() {
 
             <div className="video-tabs">
               <button
-                className={`video-tab${activeVideo === "expansao" ? " active" : ""}`}
-                onClick={() => handleVideoTab("expansao")}
-              >
-                Expansão e modelo
-              </button>
-              <button
                 className={`video-tab${activeVideo === "paulo" ? " active" : ""}`}
                 onClick={() => handleVideoTab("paulo")}
               >
                 Dr. Paulo Zahr
+              </button>
+              <button
+                className={`video-tab${activeVideo === "expansao" ? " active" : ""}`}
+                onClick={() => handleVideoTab("expansao")}
+              >
+                Expansão e modelo
               </button>
               <button
                 className={`video-tab${activeVideo === "clinica" ? " active" : ""}`}
@@ -50,36 +48,6 @@ export default function VideoSection() {
               >
                 Tour pela clínica
               </button>
-            </div>
-
-            <div
-              className="video-speaker transition-all duration-300"
-              id="videoSpeaker"
-              style={
-                isSpeakerActive
-                  ? { borderColor: "rgba(181,232,0,0.45)", background: "rgba(181,232,0,0.08)" }
-                  : {}
-              }
-            >
-              <img
-                src={speakers.expansao.img}
-                alt="Felipe Naresi"
-                className="w-12 h-12 rounded-full object-cover shadow-lg transition-all duration-300"
-                style={
-                  isSpeakerActive
-                    ? { border: "2px solid rgba(181,232,0,0.5)" }
-                    : { border: "1px solid rgba(255,255,255,0.1)" }
-                }
-              />
-              <div>
-                <div
-                  className="video-speaker-name transition-colors duration-300"
-                  style={isSpeakerActive ? { color: "var(--lime)" } : {}}
-                >
-                  Felipe Naresi
-                </div>
-                <div className="video-speaker-role">COO da OdontoCompany</div>
-              </div>
             </div>
           </div>
 
