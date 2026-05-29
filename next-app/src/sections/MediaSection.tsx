@@ -55,6 +55,24 @@ export default function MediaSection() {
           >
             Quero ser um franqueado
           </button>
+
+          <div className="media-press-box">
+            <p className="media-press-title">Veja o que a imprensa já falou sobre a OdontoCompany :</p>
+            <div className="media-press-logos">
+              <a href="https://exame.com/negocios/franquias-com-receita-recorrente-conheca-20-negocios-com-fluxo-continuo-de-faturamento/" target="_blank" rel="noopener noreferrer" className="media-press-link">
+                <img src="https://logo.clearbit.com/exame.com?size=200" alt="Exame" className="media-press-logo" />
+              </a>
+              <a href="https://www.portaldofranchising.com.br/noticias/franquias-atraem-pais-e-filhos/" target="_blank" rel="noopener noreferrer" className="media-press-link">
+                <img src="https://logo.clearbit.com/portaldofranchising.com.br?size=200" alt="ABF Portal do Franchising" className="media-press-logo" />
+              </a>
+              <a href="https://guiadafarmacia.com.br/materia/oral-care-saude-comeca-pela-boca/" target="_blank" rel="noopener noreferrer" className="media-press-link">
+                <img src="https://logo.clearbit.com/guiadafarmacia.com.br?size=200" alt="Guia da Farmácia" className="media-press-logo" />
+              </a>
+              <a href="https://www.terra.com.br/vida-e-estilo/conheca-5-procedimentos-esteticos-realizados-por-dentistas,c2d59c7e46c718bbab3b82d3e907f65duqrmbfy0.html" target="_blank" rel="noopener noreferrer" className="media-press-link">
+                <img src="https://logo.clearbit.com/terra.com.br?size=200" alt="Terra" className="media-press-logo" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

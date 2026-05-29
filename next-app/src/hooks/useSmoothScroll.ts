@@ -6,6 +6,11 @@ import Lenis from '@studio-freight/lenis';
 
 export function useSmoothScroll() {
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
+
     gsap.registerPlugin(ScrollTrigger);
 
     const lenis = new Lenis({

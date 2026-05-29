@@ -1539,6 +1539,45 @@ section { padding: 96px 0; }
   background: var(--cta-green-hover) !important;
   box-shadow: 0 0 30px var(--cta-green-glow-hover);
 }
+.media-press-box {
+  margin-top: 32px;
+  background: #f2f4f3;
+  border-radius: 16px;
+  padding: 28px 32px;
+}
+.media-press-title {
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--green-700, #2D7270);
+  margin-bottom: 24px;
+}
+.media-press-logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.media-press-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-width: 80px;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+  filter: grayscale(1);
+}
+.media-press-link:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+.media-press-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
 .media-eliana-card {
   position: relative;
   width: 100%;
