@@ -13,7 +13,6 @@ import {
   ShieldCheck,
   BarChart3,
 } from "lucide-react";
-import ClinicCarousel from "@/components/ClinicCarousel";
 
 type RoadmapItem = {
   step: string;
@@ -124,8 +123,6 @@ export default function RoadmapSection() {
             <ZigCard key={item.step} item={item} />
           ))}
         </div>
-
-        <ClinicCarousel />
       </div>
     </section>
   );

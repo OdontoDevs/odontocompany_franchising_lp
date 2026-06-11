@@ -2,6 +2,7 @@
 
 import Navbar from "@/sections/Navbar";
 import HeroSection from "@/sections/HeroSection";
+import UnitsSection from "@/sections/UnitsSection";
 import VideoSection from "@/sections/VideoSection";
 import MarketSection from "@/sections/MarketSection";
 import CompareSection from "@/sections/CompareSection";
@@ -22,6 +23,7 @@ export default function Home() {
     <>
       <Navbar />
       <HeroSection />
+      <UnitsSection />
       <VideoSection />
       <MarketSection />
       <CompareSection />

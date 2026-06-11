@@ -1,6 +1,6 @@
 'use client';
 
-import { TrendingUp, Clock, Banknote } from "lucide-react";
+import { Gauge, Building2, Award } from "lucide-react";
 import CtaFunnel from "@/components/CtaFunnel";
 
 export default function HeroSection() {
@@ -11,31 +11,28 @@ export default function HeroSection() {
       <div className="hero-stats" aria-hidden="true">
         <div className="hero-stat hero-stat--1 fade-in-soft delay-3">
           <span className="hero-stat__icon">
-            <TrendingUp />
+            <Gauge />
           </span>
           <div className="hero-stat__text">
-            <span className="hero-stat__label">Lucratividade média mensal</span>
-            <strong className="hero-stat__value">20-25%</strong>
+            <strong className="hero-stat__value">Operação Simplificada</strong>
           </div>
         </div>
 
         <div className="hero-stat hero-stat--2 fade-in-soft delay-4">
           <span className="hero-stat__icon">
-            <Clock />
+            <Building2 />
           </span>
           <div className="hero-stat__text">
-            <span className="hero-stat__label">Prazo médio de retorno</span>
-            <strong className="hero-stat__value">24 meses</strong>
+            <strong className="hero-stat__value">Estrutura Completa</strong>
           </div>
         </div>
 
         <div className="hero-stat hero-stat--3 fade-in-soft delay-5">
           <span className="hero-stat__icon">
-            <Banknote />
+            <Award />
           </span>
           <div className="hero-stat__text">
-            <span className="hero-stat__label">Faturamento médio anual</span>
-            <strong className="hero-stat__value">1,4 Milhões</strong>
+            <strong className="hero-stat__value">Autoridade de Mercado</strong>
           </div>
         </div>
       </div>
@@ -43,11 +40,11 @@ export default function HeroSection() {
       <div className="hero-inner">
         <div className="hero-content">
           <h1 className="hero-headline animate-in delay-2">
-            Maior <em>ecossistema</em> de odontologia do Brasil
+            Invista no <em>maior ecossistema</em> de rede de franquias
+            odontológica do Brasil
           </h1>
           <p className="hero-sub animate-in delay-3">
-            +1.000 unidades. +6 milhões de pacientes. Modelo testado em 35 anos
-            de mercado. Retorno do investimento a partir do 24º mês.
+            +1.000 unidades, modelo comprovado em 35 anos de mercado
           </p>
           <div className="fade-in-soft delay-4 max-w-lg mt-6 hero-ctas">
             <CtaFunnel />
@@ -58,11 +55,11 @@ export default function HeroSection() {
         <div className="hero-ticker-track">
           {Array.from({ length: 3 }).map((_, index) => (
             <div className="hero-ticker-item" key={index}>
-              <span>20 a 25% LUCRATIVIDADE MENSAL</span>
+              <span>ESTRUTURA OPERACIONAL</span>
               <span className="hero-ticker-sep">·</span>
-              <span>+20 MILHÕES DE PACIENTES</span>
+              <span>SOLIDEZ DA MARCA</span>
               <span className="hero-ticker-sep">·</span>
-              <span>24 MESES PRAZO DE RETORNO</span>
+              <span>FACILIDADE DE GESTÃO</span>
             </div>
           ))}
         </div>
