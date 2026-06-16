@@ -9,11 +9,11 @@ export default function CompareSection() {
         <header className="cmp-header">
           <div className="section-kicker section-kicker--dark">Por que OdontoCompany?</div>
           <h2 className="cmp-title">
-            Quanto rende R$ 450k nos <em>diferentes investimentos</em>?
+            A OdontoCompany é a melhor opção de investimento quando{" "}
+            <em>comparada ao mercado</em>.
           </h2>
           <p className="cmp-sub">
-            Antes de decidir, compare o retorno da sua franquia com outras
-            formas de aplicar o mesmo capital.
+            Quanto rende R$ 450k nos <em>diferentes investimentos</em>?
           </p>
         </header>
 

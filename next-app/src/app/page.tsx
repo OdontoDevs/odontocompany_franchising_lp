@@ -24,14 +24,14 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       <UnitsSection />
+      <MediaSection />
       <VideoSection />
       <MarketSection />
       <CompareSection />
       <BenefitsSection />
       <KPISection />
-      <RoadmapSection />
-      <MediaSection />
       <TestimonialsSection />
+      <RoadmapSection />
       <FAQSection />
       <div className="cta-footer-shell">
         <CtaSection />

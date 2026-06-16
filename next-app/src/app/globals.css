@@ -588,6 +588,7 @@ section { padding: 96px 0; }
 .mkt-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-auto-rows: 1fr;
   gap: 16px;
 }
 .mkt-card {
@@ -629,16 +630,15 @@ section { padding: 96px 0; }
   font-size: 40px; font-weight: 700; line-height: 1;
   letter-spacing: -0.03em;
   color: var(--white);
-  margin-top: auto; padding-top: 12px;
+  padding-top: 8px;
 }
 .mkt-card-num--lime { color: var(--lime); }
 .mkt-card-label {
   font-family: var(--sans);
-  font-size: 10px; font-weight: 700;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.4;
+  font-size: 15px; font-weight: 600;
+  letter-spacing: 0em;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.5;
 }
 
 
@@ -686,17 +686,18 @@ section { padding: 96px 0; }
   display: flex;
   flex-direction: column;
   gap: 24px;
-  max-width: 768px;
+  max-width: 960px;
   margin: 0 auto;
   align-items: center;
 }
 
 .cmp-title {
   font-family: var(--serif);
-  font-size: 56px; font-weight: 700;
+  font-size: 48px; font-weight: 700;
   line-height: 1.1;
   letter-spacing: -0.04em;
   color: var(--white);
+  text-wrap: balance;
 }
 .cmp-title em {
   font-style: italic;
@@ -707,6 +708,11 @@ section { padding: 96px 0; }
   font-family: var(--sans);
   font-size: 18px; line-height: 1.6;
   color: rgba(255,255,255,0.95);
+  text-wrap: balance;
+}
+.cmp-sub em {
+  font-style: italic;
+  color: var(--lime);
 }
 
 /* Tabela */
@@ -1036,6 +1042,28 @@ section { padding: 96px 0; }
   line-height: 1.6;
   color: var(--slate-600);
   flex-grow: 1;
+}
+
+/* Preview de vídeo flutuante no hover do card (Marketing nacional).
+   Renderizado via portal no <body> e posicionado em coordenadas de viewport
+   (left/top inline + translate -50% via framer-motion), para ficar acima de
+   tudo e escapar do overflow:hidden da seção. */
+.ben-video-pop {
+  position: fixed;
+  width: 420px;
+  max-width: 92vw;
+  aspect-ratio: 16 / 9;
+  z-index: 9999;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.ben-video-pop-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Animations */
@@ -2096,6 +2124,61 @@ section { padding: 96px 0; }
 .cta-mini-stat { }
 .cta-mini-val {  @apply font-heading text-h2 tabular-nums font-[700]; color: var(--lime); line-height: 1; }
 .cta-mini-label { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+/* ===== Mapa do Brasil (CTA) ===== */
+.brazil-map {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 8px auto 0;
+  aspect-ratio: 613 / 639;
+}
+.brazil-map__states-layer,
+.brazil-map__pins {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.brazil-map__svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.brazil-map__svg path {
+  fill: rgba(255, 255, 255, 0.10);
+  stroke: rgba(181, 232, 0, 0.35);
+  stroke-width: 0.6;
+  transition: fill 0.25s ease;
+}
+.brazil-map__svg path:hover { fill: rgba(181, 232, 0, 0.22); }
+
+.brazil-map__pins { pointer-events: none; overflow: visible; }
+.brazil-pin { pointer-events: auto; cursor: pointer; transform-box: fill-box; }
+.brazil-pin__drop {
+  fill: var(--lime, #b5e800);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
+  transition: transform 0.2s ease;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+}
+.brazil-pin__dot { fill: #0a1815; }
+.brazil-pin:hover .brazil-pin__drop { transform: scale(1.35); }
+.brazil-pin--hub .brazil-pin__drop { fill: #d4ff3d; }
+.brazil-pin__pulse {
+  fill: rgba(181, 232, 0, 0.45);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: brazilPinPulse 2.4s ease-out infinite;
+}
+@keyframes brazilPinPulse {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  70%  { transform: scale(2.4); opacity: 0; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+.brazil-map__caption {
+  text-align: center;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 14px;
+}
+.brazil-map__caption strong { color: var(--lime, #b5e800); }
 .cta-form-card {
   position: relative;
   overflow: hidden;

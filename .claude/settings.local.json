@@ -38,7 +38,18 @@
       "Bash(npx next *)",
       "Bash('C:\\\\Users\\\\rudyb/.claude/skills/gstack/browse/dist/browse' goto *)",
       "Bash('C:\\\\Users\\\\rudyb/.claude/skills/gstack/browse/dist/browse' js *)",
-      "Bash('C:\\\\Users\\\\rudyb/.claude/skills/gstack/browse/dist/browse' screenshot *)"
+      "Bash('C:\\\\Users\\\\rudyb/.claude/skills/gstack/browse/dist/browse' screenshot *)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(rtk pnpm *)",
+      "Bash(rtk npm *)",
+      "WebSearch",
+      "Bash(curl -s \"https://unpkg.com/@svg-maps/brazil/brazil.js\")",
+      "Bash(curl -sL \"https://unpkg.com/@svg-maps/brazil@2.0.0/brazil.js\" -o /tmp/brazil.js)",
+      "Read(//tmp/**)",
+      "Bash(curl -sL \"https://unpkg.com/@svg-maps/brazil@2.0.0/\")",
+      "Bash(curl -s \"https://data.jsdelivr.com/v1/packages/npm/@svg-maps/brazil@2.0.0\")",
+      "Bash(curl -sL \"https://cdn.jsdelivr.net/npm/@svg-maps/brazil@2.0.0/brazil.svg\" -o /tmp/brazil.svg)"
     ]
   }
 }

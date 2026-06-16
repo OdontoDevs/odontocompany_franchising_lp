@@ -7,9 +7,8 @@ export default function MarketSection() {
       <div className="mkt-inner">
         <div className="mkt-left">
           <h2 className="mkt-headline">
-            Odontologia: o mercado
-            <br />
-            que <span className="mkt-highlight">nunca para</span>
+            MERCADO DE{" "}
+            <span className="mkt-highlight">ODONTOLOGIA</span>
           </h2>
 
           <p className="mkt-body">
@@ -56,8 +55,7 @@ export default function MarketSection() {
                 <path d="M12 2C8.5 2 5 5 5 9c0 2 .8 3.8 2 5l2 6c.3.8 1 1 1 1h4c0 0 .7-.2 1-1l2-6c1.2-1.2 2-3 2-5 0-4-3.5-7-7-7z" />
               </svg>
             </div>
-            <div className="mkt-card-num mkt-card-num--lime">+1.000</div>
-            <div className="mkt-card-label">UNIDADES EM TODOS OS ESTADOS DO BRASIL</div>
+            <div className="mkt-card-label">Todas as especialidades em um só lugar</div>
           </div>
 
           <div className="mkt-card">
@@ -69,8 +67,8 @@ export default function MarketSection() {
                 <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
-            <div className="mkt-card-num">+6M</div>
-            <div className="mkt-card-label">CLIENTES ATIVOS NA REDE</div>
+            <div className="mkt-card-num">+25M</div>
+            <div className="mkt-card-label">SORRISOS TRANSFORMADOS</div>
           </div>
 
           <div className="mkt-card">
@@ -79,8 +77,7 @@ export default function MarketSection() {
                 <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18" />
               </svg>
             </div>
-            <div className="mkt-card-num">+100k</div>
-            <div className="mkt-card-label">IMPLANTES DENTÁRIOS POR ANO</div>
+            <div className="mkt-card-label">Tenha uma clínica sempre cheia</div>
           </div>
 
           <div className="mkt-card">
@@ -91,8 +88,7 @@ export default function MarketSection() {
                 <path d="M16 3.5a4 4 0 0 1 0 7" opacity="0.5" />
               </svg>
             </div>
-            <div className="mkt-card-num">+13k</div>
-            <div className="mkt-card-label">DENTISTAS INSCRITOS NA PLATAFORMA</div>
+            <div className="mkt-card-label">Estamos presentes em todos os Estados do Brasil</div>
           </div>
         </div>
       </div>

@@ -1,19 +1,28 @@
 "use client";
 
 import React from "react";
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface BenefitCardProps {
   icon: React.ReactNode;
   title: string;
   description: string;
   delay: number;
+  videoSrc?: string;
 }
 
-function BenefitCard({ icon, title, description, delay }: BenefitCardProps) {
-  const ref = React.useRef<HTMLDivElement>(null);
+function BenefitCard({ icon, title, description, delay, videoSrc }: BenefitCardProps) {
+  const cardRef = React.useRef<HTMLDivElement>(null);
+  const popRef = React.useRef<HTMLDivElement>(null);
+  const [mounted, setMounted] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [pos, setPos] = React.useState({ x: 0, y: 0 });
+
+  React.useEffect(() => setMounted(true), []);
 
   React.useEffect(() => {
-    const el = ref.current;
+    const el = cardRef.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -28,12 +37,86 @@ function BenefitCard({ icon, title, description, delay }: BenefitCardProps) {
     return () => observer.disconnect();
   }, [delay]);
 
+  const updatePos = React.useCallback(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    setPos({ x: r.left + r.width / 2, y: r.top + r.height / 2 });
+  }, []);
+
+  // Fechar somente quando mouse sair de AMBOS (card e popup).
+  // Usa mousemove + matches(':hover') para evitar race condition onde
+  // o browser não dispara mouseenter no popup quando ele aparece sob cursor estático.
+  React.useEffect(() => {
+    if (!open) return;
+    const check = () => {
+      const overCard = !!cardRef.current?.matches(":hover");
+      const overPop = !!popRef.current?.matches(":hover");
+      if (!overCard && !overPop) setOpen(false);
+    };
+    window.addEventListener("mousemove", check, { passive: true });
+    return () => window.removeEventListener("mousemove", check);
+  }, [open]);
+
+  React.useEffect(() => {
+    if (!open) return;
+    updatePos();
+    window.addEventListener("scroll", updatePos, { passive: true });
+    window.addEventListener("resize", updatePos);
+    return () => {
+      window.removeEventListener("scroll", updatePos);
+      window.removeEventListener("resize", updatePos);
+    };
+  }, [open, updatePos]);
+
+  const handleEnter = React.useCallback(() => {
+    updatePos();
+    setOpen(true);
+  }, [updatePos]);
+
   return (
-    <div ref={ref} className="ben-card fade-up-item">
+    <div
+      ref={cardRef}
+      className="ben-card fade-up-item"
+      onMouseEnter={videoSrc ? handleEnter : undefined}
+      onClick={videoSrc ? (e) => { e.stopPropagation(); setOpen((v) => !v); } : undefined}
+    >
       <div className="ben-card-topbar" />
       <div className="ben-icon-wrap">{icon}</div>
       <h3 className="ben-card-title">{title}</h3>
       <p className="ben-card-desc">{description}</p>
+
+      {mounted && videoSrc
+        ? createPortal(
+            <AnimatePresence>
+              {open && (
+                <motion.div
+                  ref={popRef}
+                  className="ben-video-pop"
+                  style={{ left: pos.x, top: pos.y, x: "-50%", y: "-50%" }}
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <video
+                    className="ben-video-pop-media"
+                    src={videoSrc}
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                    controls
+                    preload="metadata"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>,
+            document.body
+          )
+        : null}
     </div>
   );
 }
@@ -47,9 +130,10 @@ const benefits = [
       </svg>
     ),
     title: "Marketing nacional",
-    description:
-      "Sua clínica ganha destaque na TV, no digital e em campanhas de performance para atrair mais pacientes.",
+    description: "A marca odontológica que mais investe em mídia nacional.",
     delay: 100,
+    videoSrc:
+      "https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/video_ratinho.mp4",
   },
   {
     icon: (
@@ -69,7 +153,7 @@ const benefits = [
         <circle cx="12" cy="7" r="4" />
       </svg>
     ),
-    title: "Facilidade e Praticidade para o cliente",
+    title: "Modelo de captação exclusivo",
     description:
       "Tenha uma clínica sempre cheia e captação de clientes com baixo custo. Todas as especialidades em um só lugar.",
     delay: 300,
@@ -135,6 +219,7 @@ export default function BenefitsSection() {
               title={benefit.title}
               description={benefit.description}
               delay={benefit.delay}
+              videoSrc={benefit.videoSrc}
             />
           ))}
         </div>
