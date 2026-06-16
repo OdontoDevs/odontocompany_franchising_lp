@@ -255,7 +255,7 @@ a { color: inherit; text-decoration: none; }
 .hero {
   min-height: 100vh;
   background-color: var(--green-900);
-  background-image: url('https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/drpaulozar_hero.png');
+  background-image: url('https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/ft_drpaulo_odc.jpg');
   background-size: auto 125%; background-position: bottom right; background-repeat: no-repeat;
   background-attachment: fixed;
 
@@ -375,7 +375,7 @@ a { color: inherit; text-decoration: none; }
   inset: -60px;
   z-index: -1;
   pointer-events: none;
-  background: url('https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/drpaulozar_hero.png') bottom right / auto 125% fixed no-repeat;
+  background: url('https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/ft_drpaulo_odc.jpg') bottom right / auto 125% fixed no-repeat;
   background-color: var(--green-900);
   filter: blur(20px) brightness(0.85);
 }
@@ -2208,7 +2208,7 @@ section { padding: 96px 0; }
   inset: -60px;
   z-index: -1;
   pointer-events: none;
-  background: url('https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/drpaulozar_hero.png') bottom right / auto 125% fixed no-repeat;
+  background: url('https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/ft_drpaulo_odc.jpg') bottom right / auto 125% fixed no-repeat;
   background-color: var(--green-900);
   filter: blur(20px) brightness(0.85);
 }
