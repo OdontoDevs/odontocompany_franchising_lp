@@ -124,7 +124,7 @@ export default function RoadmapSection() {
           ))}
         </div>
 
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-20">
           <button
             className="btn-solid-green normal-case text-white font-bold px-10 py-4 text-base"
             onClick={() =>

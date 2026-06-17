@@ -1,5 +1,90 @@
 "use client";
 
+import { useRef, useState } from "react";
+
+interface MediaVideoCardProps {
+  src: string;
+  label?: string;
+}
+
+function MediaVideoCard({ src, label }: MediaVideoCardProps) {
+  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  function handlePlay() {
+    setPlaying(true);
+    videoRef.current?.play();
+  }
+
+  return (
+    <div>
+      <div className="media-vidcard">
+        <video
+          ref={videoRef}
+          src={src}
+          preload="metadata"
+          playsInline
+          controls={playing}
+          style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+        />
+        {!playing && (
+          <div
+            onClick={handlePlay}
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "rgba(12,36,34,0.55)",
+              backdropFilter: "blur(2px)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* pulse ring */}
+            <div
+              style={{
+                position: "absolute",
+                width: 88,
+                height: 88,
+                borderRadius: "50%",
+                background: "rgba(255,255,255,0.12)",
+                animation: "ping 1.6s cubic-bezier(0,0,0.2,1) infinite",
+              }}
+            />
+            {/* play button */}
+            <div
+              style={{
+                position: "relative",
+                width: 72,
+                height: 72,
+                borderRadius: "50%",
+                background: "rgba(255,255,255,0.18)",
+                border: "2px solid rgba(255,255,255,0.4)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="white"
+                style={{ width: 28, height: 28, marginLeft: 4 }}
+              >
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+            </div>
+          </div>
+        )}
+      </div>
+      {label && (
+        <p style={{ textAlign: "center", fontSize: 13, color: "var(--gray-500)", marginTop: 10 }}>
+          {label}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function MediaSection() {
   return (
     <section className="media-section-redesign" id="midia">
@@ -17,15 +102,14 @@ export default function MediaSection() {
           </p>
         </div>
 
-        <div className="media-video-wrap">
-          <video
-            className="media-video-wide"
+        <div className="media-video-grid">
+          <MediaVideoCard
             src="https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/video_ratinho.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
+            label="Programa do Ratinho · SBT"
+          />
+          <MediaVideoCard
+            src="https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/video_patricia_abravanel.mp4"
+            label="Patrícia Abravanel · SBT"
           />
         </div>
 
@@ -41,11 +125,6 @@ export default function MediaSection() {
             Nossa marca se destaca com ações de merchandising e publicidade
             nos principais canais, integrando TV, redes sociais e campanhas
             de performance.
-          </p>
-          <p className="media-content-sub">
-            Atuamos em novelas, filmes publicitários, intervalos comerciais,
-            programas de auditório, jornalismo, reality shows, esportes,
-            matinais, shows e eventos com exibição nacional.
           </p>
           <button
             className="media-box-btn"

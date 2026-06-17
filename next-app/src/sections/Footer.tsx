@@ -24,11 +24,6 @@ export default function Footer() {
             Metodologia OdontoCompany Franchising · Todos os direitos reservados.
           </div>
           <div className="flex items-center gap-3">
-            <img
-              src="https://pub-db8ed4fb33634589a6ce5fb07e85cb46.r2.dev/landingpage_odc_franchising/icones%20rodap%C3%A9.webp"
-              alt="Selos e certificações"
-              className="h-9.5 w-auto object-contain opacity-90"
-            />
             <a
               href="https://www.op7franchising.com/"
               target="_blank"

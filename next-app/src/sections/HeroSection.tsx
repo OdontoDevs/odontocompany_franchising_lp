@@ -53,13 +53,14 @@ export default function HeroSection() {
       </div>
       <div className="hero-ticker">
         <div className="hero-ticker-track">
-          {Array.from({ length: 3 }).map((_, index) => (
-            <div className="hero-ticker-item" key={index}>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <div className="hero-ticker-set" key={index} aria-hidden={index > 0 ? true : undefined}>
               <span>ESTRUTURA OPERACIONAL</span>
               <span className="hero-ticker-sep">·</span>
               <span>SOLIDEZ DA MARCA</span>
               <span className="hero-ticker-sep">·</span>
               <span>FACILIDADE DE GESTÃO</span>
+              <span className="hero-ticker-sep">·</span>
             </div>
           ))}
         </div>
