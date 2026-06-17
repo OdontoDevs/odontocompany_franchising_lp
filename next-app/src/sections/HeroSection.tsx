@@ -41,7 +41,7 @@ export default function HeroSection() {
         <div className="hero-content">
           <h1 className="hero-headline animate-in delay-2">
             Invista no <em>maior ecossistema</em> de rede de franquias
-            odontológica do Brasil
+            odontológicas do Brasil
           </h1>
           <p className="hero-sub animate-in delay-3">
             +1.000 unidades, modelo comprovado em 35 anos de mercado

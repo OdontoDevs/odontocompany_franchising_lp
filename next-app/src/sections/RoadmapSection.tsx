@@ -123,6 +123,17 @@ export default function RoadmapSection() {
             <ZigCard key={item.step} item={item} />
           ))}
         </div>
+
+        <div className="flex justify-center mt-12">
+          <button
+            className="btn-solid-green normal-case text-white font-bold px-10 py-4 text-base"
+            onClick={() =>
+              document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            Quero ser um franqueado
+          </button>
+        </div>
       </div>
     </section>
   );
