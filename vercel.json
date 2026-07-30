@@ -1,6 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/dentista", "destination": "https://odontocompany-franchising-dentista-odontocompany.vercel.app/" },
-    { "source": "/dentista/:path*", "destination": "https://odontocompany-franchising-dentista-odontocompany.vercel.app/:path*" }
-  ]
-}
