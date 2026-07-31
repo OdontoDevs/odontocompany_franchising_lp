@@ -3,7 +3,7 @@ import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
-const GTM_ID = "GTM-5QBJ9V7F";
+const GTM_ID = "GTM-WGJGL3D";
 
 const montserrat = Montserrat({
   variable: "--font-brand",
